@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS DVA-C02 Exam OCR Intelligence System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      margin-bottom: 30px;
+    }
+
+    .upload-section {
+      text-align: center;
+    }
+
+    .upload-area {
+      border: 3px dashed #667eea;
+      border-radius: 15px;
+      padding: 60px 40px;
+      margin: 30px 0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background: #f8f9ff;
+    }
+
+    .upload-area:hover {
+      border-color: #764ba2;
+      background: #f0f1ff;
+    }
+
+    .upload-area.dragover {
+      border-color: #764ba2;
+      background: #e8e9ff;
+      transform: scale(1.02);
+    }
+
+    .upload-icon {
+      font-size: 4em;
+      margin-bottom: 20px;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.1em;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin: 10px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .loading.active {
+      display: block;
+    }
+
+    .spinner {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #667eea;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .results {
+      display: none;
+    }
+
+    .results.active {
+      display: block;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-value {
+      font-size: 2.5em;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+
+    .stat-label {
+      font-size: 0.9em;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section {
+      margin: 40px 0;
+    }
+
+    .section-title {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      color: #333;
+      border-bottom: 3px solid #667eea;
+      padding-bottom: 10px;
+    }
+
+    .weak-areas, .strong-areas {
+      display: grid;
+      gap: 15px;
+    }
+
+    .area-item {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 5px solid #ef4444;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .strong-areas .area-item {
+      border-left-color: #22c55e;
+    }
+
+    .area-name {
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+
+    .area-stats {
+      text-align: right;
+    }
+
+    .accuracy-bar {
+      height: 8px;
+      background: #e5e7eb;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 10px 0;
+      width: 200px;
+    }
+
+    .accuracy-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ef4444, #f97316);
+      transition: width 0.5s ease;
+    }
+
+    .strong-areas .accuracy-fill {
+      background: linear-gradient(90deg, #22c55e, #10b981);
+    }
+
+    .recommendations {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      padding: 25px;
+      border-radius: 10px;
+    }
+
+    .recommendations ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .recommendations li {
+      padding: 10px 0;
+      border-bottom: 1px solid #fed7aa;
+    }
+
+    .recommendations li:last-child {
+      border-bottom: none;
+    }
+
+    .heatmap {
+      display: grid;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .heatmap-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      border-radius: 8px;
+      background: white;
+      border: 2px solid #e5e7eb;
+    }
+
+    .heatmap-color {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .heatmap-service {
+      flex: 1;
+      font-weight: 600;
+    }
+
+    .heatmap-accuracy {
+      font-size: 1.2em;
+      font-weight: 700;
+    }
+
+    .export-section {
+      text-align: center;
+      margin: 40px 0;
+      padding: 30px;
+      background: #f0f9ff;
+      border-radius: 15px;
+      border: 2px dashed #0ea5e9;
+    }
+
+    .questions-grid {
+      display: grid;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .question-card {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 5px solid #667eea;
+    }
+
+    .question-card.incorrect {
+      border-left-color: #ef4444;
+      background: #fef2f2;
+    }
+
+    .question-card.correct {
+      border-left-color: #22c55e;
+      background: #f0fdf4;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .question-number {
+      font-weight: 700;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .status-badge {
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9em;
+    }
+
+    .status-badge.correct {
+      background: #22c55e;
+      color: white;
+    }
+
+    .status-badge.incorrect {
+      background: #ef4444;
+      color: white;
+    }
+
+    .question-text {
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 15px 0;
+    }
+
+    .tag {
+      background: #667eea;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      font-weight: 600;
+    }
+
+    .tag.domain {
+      background: #764ba2;
+    }
+
+    .collapsible {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .collapsible.expanded {
+      max-height: 2000px;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: 1px solid #667eea;
+      color: #667eea;
+      padding: 8px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .toggle-btn:hover {
+      background: #667eea;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🧠 AWS DVA-C02 Exam OCR Intelligence System</h1>
+      <p>Upload → Extract → Analyze → Master Your Weak Areas</p>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="card upload-section">
+      <h2>Upload Your Exam Screenshots</h2>
+      <p style="color: #666; margin: 15px 0;">Upload a ZIP file containing screenshots of your practice exam questions</p>
+      
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-icon">📦</div>
+        <h3>Drop your ZIP file here or click to browse</h3>
+        <p style="color: #999; margin-top: 10px;">Supports: .png, .jpg, .jpeg, .webp</p>
+      </div>
+
+      <input type="file" id="zipFile" accept=".zip" />
+      
+      <button class="btn" id="uploadBtn" disabled>
+        🚀 Process & Analyze
+      </button>
+    </div>
+
+    <!-- Loading Section -->
+    <div class="card loading" id="loadingSection">
+      <div class="spinner"></div>
+      <h3>Processing Your Exam Screenshots...</h3>
+      <p style="color: #666; margin-top: 10px;">This may take a minute depending on the number of images</p>
+      <p id="progressText" style="margin-top: 15px; font-weight: 600; color: #667eea;"></p>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results" id="resultsSection">
+      <!-- Quick Stats -->
+      <div class="card">
+        <h2 class="section-title">📊 Quick Stats</h2>
+        <div class="quick-stats" id="quickStats"></div>
+      </div>
+
+      <!-- Recommendations -->
+      <div class="card">
+        <h2 class="section-title">💡 Personalized Recommendations</h2>
+        <div class="recommendations" id="recommendations"></div>
+      </div>
+
+      <!-- Weak Areas -->
+      <div class="card">
+        <h2 class="section-title">⚠️ Weak Areas (Priority Review)</h2>
+        <div class="weak-areas" id="weakAreas"></div>
+      </div>
+
+      <!-- Strong Areas -->
+      <div class="card">
+        <h2 class="section-title">✅ Strong Areas</h2>
+        <div class="strong-areas" id="strongAreas"></div>
+      </div>
+
+      <!-- Heatmap -->
+      <div class="card">
+        <h2 class="section-title">🔥 Service Performance Heatmap</h2>
+        <div class="heatmap" id="heatmap"></div>
+      </div>
+
+      <!-- Export for ChatGPT -->
+      <div class="card">
+        <div class="export-section">
+          <h2 style="margin-bottom: 15px;">🤖 Export for ChatGPT Analysis</h2>
+          <p style="color: #666; margin-bottom: 20px;">
+            Generate formatted text to paste into ChatGPT for deep concept analysis, 
+            trap recognition, and architecture reasoning
+          </p>
+          <button class="btn btn-secondary" id="exportBtn">
+            📋 Copy for ChatGPT
+          </button>
+        </div>
+      </div>
+
+      <!-- Detailed Questions -->
+      <div class="card">
+        <h2 class="section-title">📝 Detailed Question Analysis</h2>
+        <div class="questions-grid" id="questionsGrid"></div>
+      </div>
+
+      <!-- Reset Button -->
+      <div class="card" style="text-align: center;">
+        <button class="btn" id="resetBtn">🔄 Process Another ZIP</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const currentHost = window.location.hostname;
+    const API_URL = `http://${currentHost}:4000`;
+    console.log('🌐 Frontend origin:', window.location.origin);
+    console.log('🔗 API URL:', API_URL);
+    let currentResults = null;
+
+    // Elements
+    const uploadArea = document.getElementById('uploadArea');
+    const zipFileInput = document.getElementById('zipFile');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const loadingSection = document.getElementById('loadingSection');
+    const resultsSection = document.getElementById('resultsSection');
+    const progressText = document.getElementById('progressText');
+    const resetBtn = document.getElementById('resetBtn');
+    const exportBtn = document.getElementById('exportBtn');
+
+    // Test backend connection on page load with fallback
+    async function testConnection() {
+      console.group('🔍 Connection Test');
+      console.log('Frontend Origin:', window.location.origin);
+      console.log('Detected Hostname:', currentHost);
+      console.log('Initial API_URL:', API_URL);
+      
+      const urlsToTry = [
+        API_URL, // Try current hostname first
+        `http://localhost:4000`, // Fallback to localhost
+        `http://127.0.0.1:4000`  // Fallback to 127.0.0.1
+      ];
+
+      console.log('URLs to try:', urlsToTry);
+
+      for (let i = 0; i < urlsToTry.length; i++) {
+        const url = urlsToTry[i];
+        try {
+          console.log(`\n[${i + 1}/${urlsToTry.length}] Attempting: ${url}`);
+          const startTime = Date.now();
+          
+          const response = await fetch(`${url}/api/health`, {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          const duration = Date.now() - startTime;
+          console.log(`   Response received in ${duration}ms`);
+          console.log(`   Status: ${response.status} ${response.statusText}`);
+          console.log(`   Headers:`, Object.fromEntries(response.headers.entries()));
+          
+          if (response.ok) {
+            const data = await response.json();
+            console.log('✅ SUCCESS! Backend connected:', data);
+            // Always set window.API_URL to the working URL for global access
+            window.API_URL = url;
+            if (url !== API_URL) {
+              console.log(`🔄 Switching API_URL from ${API_URL} to ${url}`);
+            } else {
+              console.log(`✅ Using API_URL: ${url}`);
+            }
+            console.groupEnd();
+            return true;
+          } else {
+            console.warn(`   ⚠️ Response not OK: ${response.status}`);
+            const text = await response.text();
+            console.warn(`   Response body:`, text);
+          }
+        } catch (error) {
+          const errorDetails = {
+            name: error.name,
+            message: error.message,
+            stack: error.stack
+          };
+          console.error(`   ❌ FAILED:`, errorDetails);
+          console.error(`   Error type: ${error.constructor.name}`);
+          
+          // Check for specific error types
+          if (error.message.includes('Failed to fetch')) {
+            console.error('   💡 This usually means:');
+            console.error('      - Server is not running');
+            console.error('      - Wrong port number');
+            console.error('      - Firewall blocking connection');
+            console.error('      - CORS policy blocking request');
+          }
+          if (error.message.includes('NetworkError') || error.message.includes('ERR_CONNECTION_REFUSED')) {
+            console.error('   💡 Connection refused - server likely not running');
+          }
+          if (error.message.includes('CORS')) {
+            console.error('   💡 CORS error - check backend CORS configuration');
+          }
+          
+          continue; // Try next URL
+        }
+      }
+
+      // All URLs failed
+      console.error('\n❌ ALL CONNECTION ATTEMPTS FAILED');
+      console.error('Diagnosis:');
+      console.error('1. Check if backend server is running: cd backend && npm run dev');
+      console.error('2. Verify server shows: "📡 Server running on http://localhost:4000"');
+      console.error('3. Try accessing http://localhost:4000/api/health directly in browser');
+      console.error('4. Check Windows Firewall isn\'t blocking port 4000');
+      console.error('5. Try Postman to test backend directly (see instructions below)');
+      console.groupEnd();
+      
+      const uploadSection = document.querySelector('.upload-section');
+      
+      // Remove any existing error messages
+      const existingError = uploadSection.querySelector('.connection-error');
+      if (existingError) existingError.remove();
+      
+      const errorMsg = document.createElement('div');
+      errorMsg.className = 'connection-error';
+      errorMsg.style.cssText = 'background: #fee2e2; border: 2px solid #ef4444; border-radius: 10px; padding: 20px; margin: 20px 0; text-align: center;';
+      errorMsg.innerHTML = `
+        <h3 style="color: #dc2626; margin-bottom: 10px;">⚠️ Backend Server Not Connected</h3>
+        <p style="color: #991b1b; margin-bottom: 10px;">
+          Tried connecting to:<br>
+          <code style="font-size: 0.85em;">${urlsToTry.join('<br>')}</code>
+        </p>
+        <p style="color: #7f1d1d; font-size: 0.9em; margin-top: 15px;">
+          <strong>Make sure you've started the backend server:</strong><br>
+          <code style="background: white; padding: 8px 15px; border-radius: 5px; display: inline-block; margin-top: 10px; font-size: 1em;">
+            cd backend && npm run dev
+          </code>
+        </p>
+        <p style="color: #7f1d1d; font-size: 0.85em; margin-top: 10px;">
+          The server should show: "📡 Server running on http://localhost:4000"
+        </p>
+      `;
+      uploadSection.insertBefore(errorMsg, uploadSection.firstChild);
+      uploadBtn.disabled = true;
+      return false;
+    }
+
+    // Test connection when page loads
+    testConnection();
+
+    // Upload area interactions
+    uploadArea.addEventListener('click', () => zipFileInput.click());
+
+    uploadArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadArea.classList.add('dragover');
+    });
+
+    uploadArea.addEventListener('dragleave', () => {
+      uploadArea.classList.remove('dragover');
+    });
+
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.classList.remove('dragover');
+      
+      const files = e.dataTransfer.files;
+      if (files.length > 0 && files[0].name.endsWith('.zip')) {
+        zipFileInput.files = files;
+        handleFileSelect();
+      }
+    });
+
+    zipFileInput.addEventListener('change', handleFileSelect);
+
+    function handleFileSelect() {
+      const file = zipFileInput.files[0];
+      if (file) {
+        uploadBtn.disabled = false;
+        uploadArea.querySelector('h3').textContent = `✅ ${file.name} selected`;
+      }
+    }
+
+    // Upload and process with comprehensive debugging
+    uploadBtn.addEventListener('click', async () => {
+      try {
+        console.log('=== UPLOAD DEBUG START ===');
+        
+        // Step 1: Get file
+        const file = zipFileInput.files[0];
+        console.log('1. File object:', file);
+        console.log('2. File name:', file?.name);
+        console.log('3. File size:', file?.size, 'bytes');
+        console.log('4. File type:', file?.type);
+        
+        if (!file) {
+          throw new Error('No file selected!');
+        }
+        
+        // Step 2: Verify API URL
+        const apiUrl = window.API_URL || API_URL;
+        console.log('5. API_URL constant:', API_URL);
+        console.log('6. window.API_URL:', window.API_URL);
+        console.log('7. Final apiUrl:', apiUrl);
+        
+        if (!apiUrl) {
+          throw new Error('apiUrl is undefined! Check API_URL constant.');
+        }
+        
+        // Step 3: Create FormData
+        const formData = new FormData();
+        formData.append('zip', file);
+        console.log('8. FormData created');
+        console.log('9. FormData entries:', Array.from(formData.entries()).map(([k, v]) => [k, v instanceof File ? `${v.name} (${v.size} bytes)` : v]));
+        
+        // Step 4: Construct full URL
+        const uploadUrl = `${apiUrl}/api/ocr/upload`;
+        console.log('10. Full upload URL:', uploadUrl);
+        
+        // Show loading
+        document.querySelector('.upload-section').style.display = 'none';
+        loadingSection.classList.add('active');
+        progressText.textContent = 'Extracting images from ZIP...';
+
+        // Step 5: Check file size (warn if very large)
+        const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+        console.log(`11. File size: ${fileSizeMB} MB`);
+        if (file.size > 50 * 1024 * 1024) {
+          console.warn('⚠️ File is very large (>50MB). This may cause timeout issues.');
+        }
+        
+        // Step 6: Attempt fetch with timeout
+        console.log('12. Calling fetch...');
+        const startTime = Date.now();
+        
+        // Create AbortController for timeout
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 300000); // 5 minute timeout
+        
+        let response;
+        try {
+          response = await fetch(uploadUrl, {
+            method: 'POST',
+            body: formData,
+            mode: 'cors',
+            signal: controller.signal,
+            // Don't set Content-Type - let browser set it with boundary for FormData
+          });
+          clearTimeout(timeoutId);
+        } catch (fetchError) {
+          clearTimeout(timeoutId);
+          
+          // Check for specific error types
+          if (fetchError.name === 'AbortError') {
+            throw new Error('Upload timeout - file is too large or server is too slow');
+          } else if (fetchError.message.includes('Failed to fetch') || fetchError.message.includes('blocked')) {
+            // This usually means request was blocked before sending
+            console.error('💡 DIAGNOSIS: Request blocked before sending');
+            console.error('   Possible causes:');
+            console.error('   1. Browser extension blocking request (ad blocker, privacy tool)');
+            console.error('   2. Network policy blocking large uploads');
+            console.error('   3. CORS preflight failing silently');
+            console.error('   4. File too large for browser to handle');
+            console.warn('   💡 Attempting fallback: XMLHttpRequest...');
+            
+            // Try XMLHttpRequest as fallback (sometimes works when fetch is blocked)
+            try {
+              const xhrResult = await new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', uploadUrl);
+                xhr.setRequestHeader('Accept', 'application/json');
+                xhr.responseType = 'json';
+                
+                xhr.onload = () => {
+                  if (xhr.status >= 200 && xhr.status < 300) {
+                    // Create a Response-like object
+                    resolve({
+                      ok: true,
+                      status: xhr.status,
+                      statusText: xhr.statusText,
+                      json: async () => xhr.response || JSON.parse(xhr.responseText),
+                      text: async () => xhr.responseText,
+                      headers: new Headers()
+                    });
+                  } else {
+                    reject(new Error(`HTTP ${xhr.status}: ${xhr.statusText}`));
+                  }
+                };
+                
+                xhr.onerror = () => reject(new Error('XMLHttpRequest failed'));
+                xhr.ontimeout = () => reject(new Error('XMLHttpRequest timeout'));
+                xhr.timeout = 300000; // 5 minutes
+                
+                xhr.send(formData);
+              });
+              
+              console.log('✅ Fallback XMLHttpRequest succeeded!');
+              response = xhrResult;
+            } catch (xhrError) {
+              console.error('❌ XMLHttpRequest fallback also failed:', xhrError);
+              throw new Error('Request blocked by browser. Try: 1) Disable browser extensions, 2) Use incognito/private window, 3) Try different browser, 4) Check Network tab for blocked requests');
+            }
+          } else {
+            throw fetchError;
+          }
+        }
+        
+        const duration = Date.now() - startTime;
+        console.log(`13. Fetch completed in ${duration}ms`);
+        console.log('14. Response status:', response.status, response.statusText);
+        console.log('15. Response ok:', response.ok);
+        console.log('16. Response headers:', Object.fromEntries(response.headers.entries()));
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error('17. Error response body:', errorText);
+          throw new Error(`Upload failed: ${response.status} - ${errorText}`);
+        }
+
+        console.log('18. Parsing JSON response...');
+        currentResults = await response.json();
+        console.log('19. ✅ SUCCESS! Results received:', currentResults);
+        console.log('=== UPLOAD DEBUG END ===');
+        
+        displayResults(currentResults);
+
+      } catch (error) {
+        console.error('=== UPLOAD ERROR ===');
+        console.error('Error name:', error.name);
+        console.error('Error message:', error.message);
+        console.error('Error stack:', error.stack);
+        console.error('===================');
+        
+        alert(`Error: ${error.message}\n\nCheck browser console (F12) for detailed logs.\n\nMake sure the backend server is running on port 4000`);
+        resetUI();
+      }
+    });
+
+    // Display results
+    function displayResults(data) {
+      loadingSection.classList.remove('active');
+      resultsSection.classList.add('active');
+
+      // Quick stats
+      const quickStatsHTML = `
+        <div class="stat-card">
+          <div class="stat-label">Accuracy</div>
+          <div class="stat-value">${data.quickStats.accuracy}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Correct</div>
+          <div class="stat-value">${data.quickStats.correct}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Incorrect</div>
+          <div class="stat-value">${data.quickStats.incorrect}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Services Covered</div>
+          <div class="stat-value">${data.quickStats.totalServices}</div>
+        </div>
+      `;
+      document.getElementById('quickStats').innerHTML = quickStatsHTML;
+
+      // Recommendations
+      const recsHTML = `
+        <ul>
+          ${data.summary.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+        </ul>
+      `;
+      document.getElementById('recommendations').innerHTML = recsHTML;
+
+      // Weak areas
+      if (data.summary.weakAreas.length > 0) {
+        const weakHTML = data.summary.weakAreas.map(area => `
+          <div class="area-item">
+            <div>
+              <div class="area-name">${area.service}</div>
+              <div style="color: #666; font-size: 0.9em;">${area.questionsReviewed} questions</div>
+            </div>
+            <div class="area-stats">
+              <div style="font-size: 1.5em; font-weight: 700; color: #ef4444;">${area.accuracy.toFixed(1)}%</div>
+              <div class="accuracy-bar">
+                <div class="accuracy-fill" style="width: ${area.accuracy}%"></div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        document.getElementById('weakAreas').innerHTML = weakHTML;
+      } else {
+        document.getElementById('weakAreas').innerHTML = '<p style="color: #666;">No weak areas detected! 🎉</p>';
+      }
+
+      // Strong areas
+      if (data.summary.strongAreas.length > 0) {
+        const strongHTML = data.summary.strongAreas.map(area => `
+          <div class="area-item">
+            <div>
+              <div class="area-name">${area.service}</div>
+              <div style="color: #666; font-size: 0.9em;">${area.questionsReviewed} questions</div>
+            </div>
+            <div class="area-stats">
+              <div style="font-size: 1.5em; font-weight: 700; color: #22c55e;">${area.accuracy.toFixed(1)}%</div>
+              <div class="accuracy-bar">
+                <div class="accuracy-fill" style="width: ${area.accuracy}%"></div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        document.getElementById('strongAreas').innerHTML = strongHTML;
+      } else {
+        document.getElementById('strongAreas').innerHTML = '<p style="color: #666;">Process more questions to identify strong areas</p>';
+      }
+
+      // Heatmap
+      const heatmapHTML = data.heatmap.map(item => `
+        <div class="heatmap-item">
+          <div class="heatmap-color" style="background: ${item.color}"></div>
+          <div class="heatmap-service">${item.service}</div>
+          <div style="color: #666;">${item.total} questions</div>
+          <div class="heatmap-accuracy" style="color: ${item.color}">${item.accuracy.toFixed(1)}%</div>
+          <div style="font-weight: 600; color: #666;">${item.status}</div>
+        </div>
+      `).join('');
+      document.getElementById('heatmap').innerHTML = heatmapHTML;
+
+      // Questions
+      const questionsHTML = data.questions.map((q, idx) => `
+        <div class="question-card ${q.isCorrect ? 'correct' : 'incorrect'}">
+          <div class="question-header">
+            <span class="question-number">Question ${idx + 1}</span>
+            <span class="status-badge ${q.isCorrect ? 'correct' : 'incorrect'}">
+              ${q.isCorrect ? '✓ Correct' : '✗ Incorrect'}
+            </span>
+          </div>
+          
+          <div style="color: #666; font-size: 0.9em; margin-bottom: 10px;">📄 ${q.file}</div>
+          
+          ${q.parsed.question ? `<div class="question-text"><strong>Q:</strong> ${q.parsed.question}</div>` : ''}
+          
+          <div style="margin: 15px 0;">
+            <strong>Your Answer:</strong> ${q.parsed.yourAnswer || 'N/A'} | 
+            <strong>Correct:</strong> ${q.parsed.correctAnswer || 'N/A'}
+          </div>
+          
+          <div class="tags">
+            ${q.tags.services.map(s => `<span class="tag">${s}</span>`).join('')}
+            ${q.tags.domains.map(d => `<span class="tag domain">${d}</span>`).join('')}
+          </div>
+          
+          <button class="toggle-btn" onclick="toggleDetails(${idx})">Show Details</button>
+          
+          <div class="collapsible" id="details-${idx}">
+            ${q.parsed.options.length > 0 ? `
+              <div style="margin: 15px 0;">
+                <strong>Options:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                  ${q.parsed.options.map(opt => `<li>${opt}</li>`).join('')}
+                </ul>
+              </div>
+            ` : ''}
+            
+            ${q.parsed.explanation ? `
+              <div style="margin: 15px 0; padding: 15px; background: white; border-radius: 8px;">
+                <strong>Explanation:</strong><br>
+                ${q.parsed.explanation}
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `).join('');
+      document.getElementById('questionsGrid').innerHTML = questionsHTML;
+    }
+
+    // Toggle details
+    window.toggleDetails = function(idx) {
+      const details = document.getElementById(`details-${idx}`);
+      details.classList.toggle('expanded');
+    };
+
+    // Export for ChatGPT
+    exportBtn.addEventListener('click', async () => {
+      if (!currentResults) return;
+
+      try {
+        const apiUrl = window.API_URL || API_URL;
+        const response = await fetch(`${apiUrl}/api/export/chatgpt`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ questions: currentResults.questions }),
+          mode: 'cors'
+        });
+
+        const data = await response.json();
+        
+        // Copy to clipboard
+        await navigator.clipboard.writeText(data.formattedText);
+        
+        exportBtn.textContent = '✅ Copied to Clipboard!';
+        setTimeout(() => {
+          exportBtn.textContent = '📋 Copy for ChatGPT';
+        }, 2000);
+
+      } catch (error) {
+        alert(`Error: ${error.message}`);
+      }
+    });
+
+    // Reset
+    resetBtn.addEventListener('click', () => {
+      resetUI();
+    });
+
+    function resetUI() {
+      document.querySelector('.upload-section').style.display = 'block';
+      loadingSection.classList.remove('active');
+      resultsSection.classList.remove('active');
+      zipFileInput.value = '';
+      uploadBtn.disabled = true;
+      uploadArea.querySelector('h3').textContent = 'Drop your ZIP file here or click to browse';
+      currentResults = null;
+    }
+  </script>
+</body>
+</html>
+

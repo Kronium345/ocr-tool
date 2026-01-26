@@ -1,0 +1,2123 @@
+{
+  "success": true,
+  "processedCount": 33,
+  "timestamp": "2026-01-25T20:08:49.228Z",
+  "questions": [
+    {
+      "file": "Screenshot 2026-01-15 210951.png",
+      "parsed": {
+        "question": "®\nCategory: CDA - Troubleshooting and Optimization ks\nAn online stock trading platform is hosted in an Auto Scaling group of EC2 instances with an Application Load Balancer in front to distribute the\nincoming traffic evenly. The developer must capture information about the IP traffic going to and from network interfaces in your VPC to\ncomply with financial regulatory requirements.\nWhich of the following options should the developer do to meet the requirement?\n® Use CloudTrail logs to track all API calls and capture information about the IP traffic going to and from your VPC.\nUse AWS Inspector to capture information about the IP traffic going to and from the network interfaces of your EC2\ninstances.\nCreate a flow log in your VPC.\nInstall and run the AWS X-Ray daemon to your EC2 instances using an instance metadata script.\nIncorrect\nVPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow log\ndata can be published to Amazon CloudWatch Logs and Amazon S3. After you've created a flow log, you can retrieve and view its data in the\nchosen destination.",
+        "options": [
+          "C: ategory: CDA - Troubleshooting and Optimization ks",
+          "A: n online stock trading platform is hosted in an Auto Scaling group of EC2 instances with an Application Load Balancer in front to distribute the",
+          "c: oming traffic evenly. The developer must capture information about the IP traffic going to and from network interfaces in your VPC to",
+          "c: omply with financial regulatory requirements.",
+          "c: h of the following options should the developer do to meet the requirement?",
+          "C: loudTrail logs to track all API calls and capture information about the IP traffic going to and from your VPC.",
+          "A: WS Inspector to capture information about the IP traffic going to and from the network interfaces of your EC2",
+          "a: nces.",
+          "C: reate a flow log in your VPC.",
+          "a: ll and run the AWS X-Ray daemon to your EC2 instances using an instance metadata script.",
+          "c: orrect",
+          "C: Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow log",
+          "d: ata can be published to Amazon CloudWatch Logs and Amazon S3. After you've created a flow log, you can retrieve and view its data in the",
+          "c: hosen destination."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "5. QUESTION\n®\nCategory: CDA - Troubleshooting and Optimization ks\nAn online stock trading platform is hosted in an Auto Scaling group of EC2 instances with an Application Load Balancer in front to distribute the\nincoming traffic evenly. The developer must capture information about the IP traffic going to and from network interfaces in your VPC to\ncomply with financial regulatory requirements.\nWhich of the following options should the developer do to meet the requirement?\n® Use CloudTrail logs to track all API calls and capture information about the IP traffic going to and from your VPC.\nUse AWS Inspector to capture information about the IP traffic going to and from the network interfaces of your EC2\ninstances.\nCreate a flow log in your VPC.\nInstall and run the AWS X-Ray daemon to your EC2 instances using an instance metadata script.\nIncorrect\nVPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow log\ndata can be published to Amazon CloudWatch Logs and Amazon S3. After you've created a flow log, you can retrieve and view its data in the\nchosen destination."
+      },
+      "tags": {
+        "services": [
+          "EC2",
+          "S3",
+          "VPC",
+          "Inspector",
+          "X-Ray",
+          "CloudWatch",
+          "CloudTrail"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Security",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "scaling",
+          "VPC"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 211148.png",
+      "parsed": {
+        "question": "Category: CDA - Development with AWS Services\nYou have several API Gateway APIs with Lambda Integration for each release life cycle of your application. There is a requirement to\nconsolidate multiple releases into a single API Gateway for the ALPHA, BETA, RC (Release Candidate), and PROD releases. For example, their\nclients can connect to their ALPHA release by using the alpha.tutorialsdojo.com endpoint and beta release through the\nbeta.tutorialsdojo.com endpoint.\nAs the AWS developer, how can you satisfy this requirement?\nUse Layers to the underlying Lambda functions of the API Gateway.\nSet up Stage Variables for each release.\nModify the Integration Request of the API Gateway to manage different endpoints for each release.\n® Modify the Integration Response of the API Gateway to add different endpoints for each release.\nIncorrect\nAmazon API Gateway is a service that simplifies the creation, publishing, maintenance, monitoring, and securing of APIs at any scale. API Gateway\nenables you to define and manage the interface between front-end clients and backend services. It handles all tasks associated with processing\nhundreds of thousands of concurrent API calls, including traffic management, authorization, access control, monitoring, and API version\nmanagement. One of its key features is the ability to create different stages for an API, allowing developers to maintain multiple versions of the\nsame API, such as development, testing, and production.\nCtano AdAotaile Malate cdie",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services",
+          "a: ve several API Gateway APIs with Lambda Integration for each release life cycle of your application. There is a requirement to",
+          "c: onsolidate multiple releases into a single API Gateway for the ALPHA, BETA, RC (Release Candidate), and PROD releases. For example, their",
+          "c: lients can connect to their ALPHA release by using the alpha.tutorialsdojo.com endpoint and beta release through the",
+          "b: eta.tutorialsdojo.com endpoint.",
+          "A: s the AWS developer, how can you satisfy this requirement?",
+          "a: yers to the underlying Lambda functions of the API Gateway.",
+          "a: ge Variables for each release.",
+          "d: ify the Integration Request of the API Gateway to manage different endpoints for each release.",
+          "d: ify the Integration Response of the API Gateway to add different endpoints for each release.",
+          "c: orrect",
+          "A: mazon API Gateway is a service that simplifies the creation, publishing, maintenance, monitoring, and securing of APIs at any scale. API Gateway",
+          "a: bles you to define and manage the interface between front-end clients and backend services. It handles all tasks associated with processing",
+          "d: reds of thousands of concurrent API calls, including traffic management, authorization, access control, monitoring, and API version",
+          "a: nagement. One of its key features is the ability to create different stages for an API, allowing developers to maintain multiple versions of the",
+          "a: me API, such as development, testing, and production.",
+          "C: tano AdAotaile Malate cdie"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "7. QUESTION\nCategory: CDA - Development with AWS Services\nYou have several API Gateway APIs with Lambda Integration for each release life cycle of your application. There is a requirement to\nconsolidate multiple releases into a single API Gateway for the ALPHA, BETA, RC (Release Candidate), and PROD releases. For example, their\nclients can connect to their ALPHA release by using the alpha.tutorialsdojo.com endpoint and beta release through the\nbeta.tutorialsdojo.com endpoint.\nAs the AWS developer, how can you satisfy this requirement?\nUse Layers to the underlying Lambda functions of the API Gateway.\nSet up Stage Variables for each release.\nModify the Integration Request of the API Gateway to manage different endpoints for each release.\n® Modify the Integration Response of the API Gateway to add different endpoints for each release.\nIncorrect\nAmazon API Gateway is a service that simplifies the creation, publishing, maintenance, monitoring, and securing of APIs at any scale. API Gateway\nenables you to define and manage the interface between front-end clients and backend services. It handles all tasks associated with processing\nhundreds of thousands of concurrent API calls, including traffic management, authorization, access control, monitoring, and API version\nmanagement. One of its key features is the ability to create different stages for an API, allowing developers to maintain multiple versions of the\nsame API, such as development, testing, and production.\nCtano AdAotaile Malate cdie"
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "API Gateway",
+          "SAM"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Deployment",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "monitoring",
+          "authorization"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 211315.png",
+      "parsed": {
+        "question": "Category: CDA - Troubleshooting and Optimization\nA serverless application consisting of Lambda functions integrated with API Gateway, and DynamoDB processes ad hoc requests that its users\nsend. Due to the recent spike in incoming traffic, some of your customers are complaining that they are getting HTTP 504 errors from time to\ntime.\nWhich of the following is the MOST likely cause of this issue?\nAn authorization failure occurred between API Gateway and the Lambda function.\n® Since the incoming requests are increasing, the API Gateway automatically enabled throttling which caused the HTTP 504\nerrors.\nAPI Gateway request has timed out because the underlying Lambda function has been running for more than 29 seconds.\nThe usage plan quota has been exceeded for the Lambda function.\nIncorrect\nA gateway response is identified by a response type defined by API Gateway. The response consists of an HTTP status code, a set of additional\nheaders that are specified by parameter mappings, and a payload that is generated by a non-VTL (Apache Velocity Template Language) mapping\ntemplate.\np=",
+        "options": [
+          "C: ategory: CDA - Troubleshooting and Optimization",
+          "A: serverless application consisting of Lambda functions integrated with API Gateway, and DynamoDB processes ad hoc requests that its users",
+          "d: Due to the recent spike in incoming traffic, some of your customers are complaining that they are getting HTTP 504 errors from time to",
+          "c: h of the following is the MOST likely cause of this issue?",
+          "A: n authorization failure occurred between API Gateway and the Lambda function.",
+          "c: e the incoming requests are increasing, the API Gateway automatically enabled throttling which caused the HTTP 504",
+          "A: PI Gateway request has timed out because the underlying Lambda function has been running for more than 29 seconds.",
+          "a: ge plan quota has been exceeded for the Lambda function.",
+          "c: orrect",
+          "A: gateway response is identified by a response type defined by API Gateway. The response consists of an HTTP status code, a set of additional",
+          "a: ders that are specified by parameter mappings, and a payload that is generated by a non-VTL (Apache Velocity Template Language) mapping",
+          "a: te."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "8. QUESTION\nCategory: CDA - Troubleshooting and Optimization\nA serverless application consisting of Lambda functions integrated with API Gateway, and DynamoDB processes ad hoc requests that its users\nsend. Due to the recent spike in incoming traffic, some of your customers are complaining that they are getting HTTP 504 errors from time to\ntime.\nWhich of the following is the MOST likely cause of this issue?\nAn authorization failure occurred between API Gateway and the Lambda function.\n® Since the incoming requests are increasing, the API Gateway automatically enabled throttling which caused the HTTP 504\nerrors.\nAPI Gateway request has timed out because the underlying Lambda function has been running for more than 29 seconds.\nThe usage plan quota has been exceeded for the Lambda function.\nIncorrect\nA gateway response is identified by a response type defined by API Gateway. The response consists of an HTTP status code, a set of additional\nheaders that are specified by parameter mappings, and a payload that is generated by a non-VTL (Apache Velocity Template Language) mapping\ntemplate.\np="
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "DynamoDB",
+          "API Gateway"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "serverless",
+          "throttling",
+          "authorization"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 211435.png",
+      "parsed": {
+        "question": "",
+        "options": [
+          "A: development team has started using AWS CloudFormation for deploying Lambda functions. Their project structure places the source code",
+          "a: mbda function locally within a directory named “tutorialsdojo”. The lambda handler for the function is in a file called \"app.js\".",
+          "B: elow is a snippet of their template. E",
+          "a: nsform: AWS: :Serverless-2016-10-31",
+          "c: es:",
+          "a: lsDojoFunction:",
+          "A: WS: :Serverless::Function",
+          "a: ndler: app.lambdaHandler",
+          "a: rn:aws:iam::123456789012:role/execution_role",
+          "C: odeUri: tutorialsdojo/",
+          "d: ejsl4.x",
+          "a: t is the next step in order for the template to be deployed using the aws cloudformation deploy CLI?",
+          "a: d the app.js file to an S3 bucket. Update the codeuri property in the template to point to the S3 URI of the file.",
+          "B: ase64 intrinsic function inline with the codeuri property to encode the content of the app.js file.",
+          "a: ckage the Lambda function in a ZIP file. Specify the local path of the packaged file in the codeuri property.",
+          "a: ws cloudformation package command to upload the local artifacts of the Lambda function to an S3 bucket and",
+          "d: uce a version of the template with references to the S3 URI of the file."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "A development team has started using AWS CloudFormation for deploying Lambda functions. Their project structure places the source code\nfor the Lambda function locally within a directory named “tutorialsdojo”. The lambda handler for the function is in a file called \"app.js\".\nBelow is a snippet of their template. E\nTransform: AWS: :Serverless-2016-10-31\nResources:\nTutorialsDojoFunction:\nType: AWS: :Serverless::Function\nProperties:\nHandler: app.lambdaHandler\nRole: arn:aws:iam::123456789012:role/execution_role\nCodeUri: tutorialsdojo/\nRuntime: nodejsl4.x\nTimeout: 15\nWhat is the next step in order for the template to be deployed using the aws cloudformation deploy CLI?\n® Upload the app.js file to an S3 bucket. Update the codeuri property in the template to point to the S3 URI of the file.\nUse the Fn::Base64 intrinsic function inline with the codeuri property to encode the content of the app.js file.\nPackage the Lambda function in a ZIP file. Specify the local path of the packaged file in the codeuri property.\nUse the aws cloudformation package command to upload the local artifacts of the Lambda function to an S3 bucket and\n- produce a version of the template with references to the S3 URI of the file."
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "S3",
+          "IAM",
+          "CloudFormation"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Security",
+          "Deployment",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "serverless"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 211536.png",
+      "parsed": {
+        "question": "Category: CDA - Security\nAn application hosted in an Auto Scaling group of On-Demand EC2 instances is used to process data polled from an SQS queue, and the E\ngenerated output is stored in an S3 bucket. To enhance security, you were tasked to ensure that all objects in the S3 bucket are encrypted at\nrest using server-side encryption with AWS KMS keys.\nWhich of the following is required to properly implement this requirement?\nAdd a bucket policy which denies any s3:Postobject action unless the request includes the x-amz-server-side-\nencryption-aws-kms-key-id header.\n® Add a bucket policy which denies any s3:pPutObject action unless the request includes the x-amz-server-side-\nencryption header.\nAdd a bucket policy which denies any s3:Postobject action unless the request includes the x-amz-server-side-\nencryption header.\nAdd a bucket policy which denies any s3:pPutoObject action unless the request includes the x-amz-server-side-\nencryption-aws-kms-key-id header.\nIncorrect\nServer-side encryption is about protecting data at rest. AWS Key Management Service (AWS KMS) is a service that combines secure, highly",
+        "options": [
+          "C: ategory: CDA - Security",
+          "A: n application hosted in an Auto Scaling group of On-Demand EC2 instances is used to process data polled from an SQS queue, and the E",
+          "a: ted output is stored in an S3 bucket. To enhance security, you were tasked to ensure that all objects in the S3 bucket are encrypted at",
+          "d: e encryption with AWS KMS keys.",
+          "c: h of the following is required to properly implement this requirement?",
+          "A: dd a bucket policy which denies any s3:Postobject action unless the request includes the x-amz-server-side-",
+          "c: ryption-aws-kms-key-id header.",
+          "A: dd a bucket policy which denies any s3:pPutObject action unless the request includes the x-amz-server-side-",
+          "c: ryption header.",
+          "A: dd a bucket policy which denies any s3:Postobject action unless the request includes the x-amz-server-side-",
+          "c: ryption header.",
+          "A: dd a bucket policy which denies any s3:pPutoObject action unless the request includes the x-amz-server-side-",
+          "c: ryption-aws-kms-key-id header.",
+          "c: orrect",
+          "d: e encryption is about protecting data at rest. AWS Key Management Service (AWS KMS) is a service that combines secure, highly"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "11. QUESTION\nCategory: CDA - Security\nAn application hosted in an Auto Scaling group of On-Demand EC2 instances is used to process data polled from an SQS queue, and the E\ngenerated output is stored in an S3 bucket. To enhance security, you were tasked to ensure that all objects in the S3 bucket are encrypted at\nrest using server-side encryption with AWS KMS keys.\nWhich of the following is required to properly implement this requirement?\nAdd a bucket policy which denies any s3:Postobject action unless the request includes the x-amz-server-side-\nencryption-aws-kms-key-id header.\n® Add a bucket policy which denies any s3:pPutObject action unless the request includes the x-amz-server-side-\nencryption header.\nAdd a bucket policy which denies any s3:Postobject action unless the request includes the x-amz-server-side-\nencryption header.\nAdd a bucket policy which denies any s3:pPutoObject action unless the request includes the x-amz-server-side-\nencryption-aws-kms-key-id header.\nIncorrect\nServer-side encryption is about protecting data at rest. AWS Key Management Service (AWS KMS) is a service that combines secure, highly"
+      },
+      "tags": {
+        "services": [
+          "EC2",
+          "S3",
+          "KMS",
+          "SQS"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Security"
+        ],
+        "keywords": [
+          "scaling",
+          "security",
+          "encryption",
+          "policy",
+          "queue"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 211636.png",
+      "parsed": {
+        "question": "Category: CDA - Security\nThe users of a social media website must be authenticated using social identity providers such as Twitter, Facebook, and Google. Users can\nlogin to the site which will allow them to upload their selfies, memes, and other media files in an S3 bucket. As an additional feature, you\nshould also enable guest user access to certain sections of the website.\nWhich of the following should you do to accomplish this task?\nIntegrate AWS IAM Identity Center with your website.\nCreate a custom identity broker which integrates with the AWS Security Token Service and supports unauthenticated access.\nCreate an Identity Pool in Amazon Cognito and enable access to unauthenticated identities.\n@® Create a User Pool in Amazon Cognito and enable access to unauthenticated identities.\nIncorrect\nAmazon Cognito provides authentication, authorization, and user management for your web and mobile apps. Your users can sign in directly with a\nusername and password or through a third party such as Facebook, Amazon, or Google.\nThe two main components of Amazon Cognito are user pools and identity pools. User pools are user directories that provide sign-up and sign-in\noptions for your app users. Identity pools enable you to grant your users access to other AWS services. You can use identity pools and user pools\nseparately or together.",
+        "options": [
+          "A: ________ 4 4 4",
+          "C: ategory: CDA - Security",
+          "a: social media website must be authenticated using social identity providers such as Twitter, Facebook, and Google. Users can",
+          "c: h will allow them to upload their selfies, memes, and other media files in an S3 bucket. As an additional feature, you",
+          "d: also enable guest user access to certain sections of the website.",
+          "c: h of the following should you do to accomplish this task?",
+          "a: te AWS IAM Identity Center with your website.",
+          "C: reate a custom identity broker which integrates with the AWS Security Token Service and supports unauthenticated access.",
+          "C: reate an Identity Pool in Amazon Cognito and enable access to unauthenticated identities.",
+          "C: reate a User Pool in Amazon Cognito and enable access to unauthenticated identities.",
+          "c: orrect",
+          "A: mazon Cognito provides authentication, authorization, and user management for your web and mobile apps. Your users can sign in directly with a",
+          "a: me and password or through a third party such as Facebook, Amazon, or Google.",
+          "a: in components of Amazon Cognito are user pools and identity pools. User pools are user directories that provide sign-up and sign-in",
+          "a: pp users. Identity pools enable you to grant your users access to other AWS services. You can use identity pools and user pools",
+          "a: rately or together."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "A ________ 4 4 4\n12. QUESTION\nCategory: CDA - Security\nThe users of a social media website must be authenticated using social identity providers such as Twitter, Facebook, and Google. Users can\nlogin to the site which will allow them to upload their selfies, memes, and other media files in an S3 bucket. As an additional feature, you\nshould also enable guest user access to certain sections of the website.\nWhich of the following should you do to accomplish this task?\nIntegrate AWS IAM Identity Center with your website.\nCreate a custom identity broker which integrates with the AWS Security Token Service and supports unauthenticated access.\nCreate an Identity Pool in Amazon Cognito and enable access to unauthenticated identities.\n@® Create a User Pool in Amazon Cognito and enable access to unauthenticated identities.\nIncorrect\nAmazon Cognito provides authentication, authorization, and user management for your web and mobile apps. Your users can sign in directly with a\nusername and password or through a third party such as Facebook, Amazon, or Google.\nThe two main components of Amazon Cognito are user pools and identity pools. User pools are user directories that provide sign-up and sign-in\noptions for your app users. Identity pools enable you to grant your users access to other AWS services. You can use identity pools and user pools\nseparately or together."
+      },
+      "tags": {
+        "services": [
+          "S3",
+          "EBS",
+          "IAM",
+          "Cognito"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Security"
+        ],
+        "keywords": [
+          "security",
+          "authentication",
+          "authorization"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 211736.png",
+      "parsed": {
+        "question": "Category: CDA - Deployment\n®\nA developer is managing a serverless application orchestrated by AWS Step Functions. One of the Lambda functions sends an API call to a Ei\nthird-party payment service, which takes some time to complete. The Step Functions workflow needs to pause while the service validates the\npayment. It should only resume after the service sends a notification to a webhook endpoint.\nWhich combination of actions will fulfill the requirements in the most cost-effective manner? (Select Two)\nConfigure the Lambda function task state to use the waitForTaskToken option. Retrieve the task token from the context\nobject of the state machine and include it as part of the Lambda function's payload body.\nUse a Wait State to pause the execution of the workflow. Configure the webhook handler to invoke the Lambda function\nsynchronously.\nSet the invocation method of the Lambda function task state to asynchronous. Create an AWS SQS queue and configure the\nwebhook handler to send the payment service's response to the queue. Use a combination of Wait State and Choice State to\npoll the queue.\nConfigure the webhook handler to call the sendTasksuccess method after a successful notification.\nConfigure the webhook handler to call the sendTaskHeartbeat method after a successful notification.",
+        "options": [
+          "C: ategory: CDA - Deployment",
+          "A: developer is managing a serverless application orchestrated by AWS Step Functions. One of the Lambda functions sends an API call to a Ei",
+          "d: -party payment service, which takes some time to complete. The Step Functions workflow needs to pause while the service validates the",
+          "a: yment. It should only resume after the service sends a notification to a webhook endpoint.",
+          "c: h combination of actions will fulfill the requirements in the most cost-effective manner? (Select Two)",
+          "C: onfigure the Lambda function task state to use the waitForTaskToken option. Retrieve the task token from the context",
+          "b: ject of the state machine and include it as part of the Lambda function's payload body.",
+          "a: Wait State to pause the execution of the workflow. Configure the webhook handler to invoke the Lambda function",
+          "c: hronously.",
+          "c: ation method of the Lambda function task state to asynchronous. Create an AWS SQS queue and configure the",
+          "b: hook handler to send the payment service's response to the queue. Use a combination of Wait State and Choice State to",
+          "C: onfigure the webhook handler to call the sendTasksuccess method after a successful notification.",
+          "C: onfigure the webhook handler to call the sendTaskHeartbeat method after a successful notification."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "13. QUESTION\nCategory: CDA - Deployment\n®\nA developer is managing a serverless application orchestrated by AWS Step Functions. One of the Lambda functions sends an API call to a Ei\nthird-party payment service, which takes some time to complete. The Step Functions workflow needs to pause while the service validates the\npayment. It should only resume after the service sends a notification to a webhook endpoint.\nWhich combination of actions will fulfill the requirements in the most cost-effective manner? (Select Two)\nConfigure the Lambda function task state to use the waitForTaskToken option. Retrieve the task token from the context\nobject of the state machine and include it as part of the Lambda function's payload body.\nUse a Wait State to pause the execution of the workflow. Configure the webhook handler to invoke the Lambda function\nsynchronously.\nSet the invocation method of the Lambda function task state to asynchronous. Create an AWS SQS queue and configure the\nwebhook handler to send the payment service's response to the queue. Use a combination of Wait State and Choice State to\npoll the queue.\nConfigure the webhook handler to call the sendTasksuccess method after a successful notification.\nConfigure the webhook handler to call the sendTaskHeartbeat method after a successful notification."
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "SQS",
+          "Step Functions",
+          "Config"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "serverless",
+          "deployment",
+          "queue",
+          "asynchronous",
+          "synchronous"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 212003.png",
+      "parsed": {
+        "question": "Category: CDA - Development with AWS Services\nA developer is building a Docker application using Amazon ECS. The application requires containers to maintain long-lived connections and\naccess specific ports on the host container instance to send or receive traffic using port mapping.\nWhich component of ECS should the developer configure to properly implement this task?\nContainer instance\n® Container Agent\nTask definition\nService scheduler\nIncorrect\nPort mappings allow containers to access ports on the host container instance to send or receive traffic. Port mappings are specified as part of\nthe container definition, which can be configured in the task definition.",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services",
+          "A: developer is building a Docker application using Amazon ECS. The application requires containers to maintain long-lived connections and",
+          "a: ccess specific ports on the host container instance to send or receive traffic using port mapping.",
+          "c: h component of ECS should the developer configure to properly implement this task?",
+          "C: ontainer instance",
+          "C: ontainer Agent",
+          "a: sk definition",
+          "c: e scheduler",
+          "c: orrect",
+          "a: ppings allow containers to access ports on the host container instance to send or receive traffic. Port mappings are specified as part of",
+          "c: ontainer definition, which can be configured in the task definition."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "y —\n18. QUESTION\nCategory: CDA - Development with AWS Services\nA developer is building a Docker application using Amazon ECS. The application requires containers to maintain long-lived connections and\naccess specific ports on the host container instance to send or receive traffic using port mapping.\nWhich component of ECS should the developer configure to properly implement this task?\nContainer instance\n® Container Agent\nTask definition\nService scheduler\nIncorrect\nPort mappings allow containers to access ports on the host container instance to send or receive traffic. Port mappings are specified as part of\nthe container definition, which can be configured in the task definition."
+      },
+      "tags": {
+        "services": [
+          "ECS",
+          "Config"
+        ],
+        "domains": [],
+        "keywords": [
+          "container"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 212047.png",
+      "parsed": {
+        "question": "Category: CDA - Security\nYou are building a distributed system using KMS where you need to encrypt data at a later time. An API must be called that returns only the\nencrypted copy of the data key which you will use for encryption. After an hour, you will decrypt the data key by calling the Decrypt API then\nusing the returned plaintext data key to finally encrypt the data.\nWhich is the MOST suitable KMS API that the system should use to securely implement the requirements described above?\nEncrypt\nGenerateDataKeyWithoutPlaintext\nGenerateRandom\n@® GenerateDataKey\nIncorrect\nThe GenerateDataKeyWithoutPlaintext API generates a unique data key. This operation returns a data key that is encrypted under a\nKMS Key that you specify. GenerateDataKeyWithoutPlaintext isidenticalto GenerateDataKey except that it returns only the\nencrypted copy of the data key.\nLike GenerateDataKey , GenerateDataKeyWithoutPlaintext returns a unique data key for each request. The bytes in the key are not\nrelated to the caller or KMS key that is used to encrypt the data key.",
+        "options": [
+          "C: ategory: CDA - Security",
+          "a: re building a distributed system using KMS where you need to encrypt data at a later time. An API must be called that returns only the",
+          "c: rypted copy of the data key which you will use for encryption. After an hour, you will decrypt the data key by calling the Decrypt API then",
+          "d: plaintext data key to finally encrypt the data.",
+          "c: h is the MOST suitable KMS API that the system should use to securely implement the requirements described above?",
+          "c: rypt",
+          "a: teDataKeyWithoutPlaintext",
+          "a: teRandom",
+          "a: teDataKey",
+          "c: orrect",
+          "a: teDataKeyWithoutPlaintext API generates a unique data key. This operation returns a data key that is encrypted under a",
+          "a: t you specify. GenerateDataKeyWithoutPlaintext isidenticalto GenerateDataKey except that it returns only the",
+          "c: rypted copy of the data key.",
+          "a: teDataKey , GenerateDataKeyWithoutPlaintext returns a unique data key for each request. The bytes in the key are not",
+          "a: ted to the caller or KMS key that is used to encrypt the data key."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "19. QUESTION\nCategory: CDA - Security\nYou are building a distributed system using KMS where you need to encrypt data at a later time. An API must be called that returns only the\nencrypted copy of the data key which you will use for encryption. After an hour, you will decrypt the data key by calling the Decrypt API then\nusing the returned plaintext data key to finally encrypt the data.\nWhich is the MOST suitable KMS API that the system should use to securely implement the requirements described above?\nEncrypt\nGenerateDataKeyWithoutPlaintext\nGenerateRandom\n@® GenerateDataKey\nIncorrect\nThe GenerateDataKeyWithoutPlaintext API generates a unique data key. This operation returns a data key that is encrypted under a\nKMS Key that you specify. GenerateDataKeyWithoutPlaintext isidenticalto GenerateDataKey except that it returns only the\nencrypted copy of the data key.\nLike GenerateDataKey , GenerateDataKeyWithoutPlaintext returns a unique data key for each request. The bytes in the key are not\nrelated to the caller or KMS key that is used to encrypt the data key."
+      },
+      "tags": {
+        "services": [
+          "KMS",
+          "ECR"
+        ],
+        "domains": [
+          "Security"
+        ],
+        "keywords": [
+          "security",
+          "encryption"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 212201.png",
+      "parsed": {
+        "question": "Category: CDA - Development with AWS Services\nA company has a microservices application that must be integrated with API Gateway. The developer must configure custom data mapping i\nbetween the API Gateway and the microservices.\nIn addition, the developer must specify how the incoming request data is mapped to the integration request and how the resulting integration\nresponse data is mapped to the method response.\nWhich of the following integration types is the MOST suitable one to use in API Gateway to meet this requirement?\nHTTP\nAWS\nHTTP_PROXY\nIncorrect\nYou can integrate an API method in your API Gateway with a custom HTTP endpoint of your application in two ways:\n— HTTP proxy integration\n— HTTP custom integration\nIn your API Gateway console, you can define the type of HTTP integration of your resource by toggling the “Proxy resource” switch.\nCroatoa racArirro",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services",
+          "A: company has a microservices application that must be integrated with API Gateway. The developer must configure custom data mapping i",
+          "b: etween the API Gateway and the microservices.",
+          "a: ddition, the developer must specify how the incoming request data is mapped to the integration request and how the resulting integration",
+          "d: ata is mapped to the method response.",
+          "c: h of the following integration types is the MOST suitable one to use in API Gateway to meet this requirement?",
+          "A: WS",
+          "c: orrect",
+          "c: an integrate an API method in your API Gateway with a custom HTTP endpoint of your application in two ways:",
+          "a: tion",
+          "c: ustom integration",
+          "A: PI Gateway console, you can define the type of HTTP integration of your resource by toggling the “Proxy resource” switch.",
+          "C: roatoa racArirro"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "23. QUESTION\nCategory: CDA - Development with AWS Services\nA company has a microservices application that must be integrated with API Gateway. The developer must configure custom data mapping i\nbetween the API Gateway and the microservices.\nIn addition, the developer must specify how the incoming request data is mapped to the integration request and how the resulting integration\nresponse data is mapped to the method response.\nWhich of the following integration types is the MOST suitable one to use in API Gateway to meet this requirement?\nHTTP\nAWS\nHTTP_PROXY\nIncorrect\nYou can integrate an API method in your API Gateway with a custom HTTP endpoint of your application in two ways:\n— HTTP proxy integration\n— HTTP custom integration\nIn your API Gateway console, you can define the type of HTTP integration of your resource by toggling the “Proxy resource” switch.\nCroatoa racArirro"
+      },
+      "tags": {
+        "services": [
+          "API Gateway",
+          "Config"
+        ],
+        "domains": [
+          "Development with AWS Services"
+        ],
+        "keywords": [
+          "microservices"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 212240.png",
+      "parsed": {
+        "question": "Category: CDA - Deployment\nYou are deploying a serverless application composed of Lambda, API Gateway, CloudFront, and DynamoDB using CloudFormation. The AWS\nSAM syntax should be used to declare resources in your template which requires you to specify the version of the AWS Serverless Application\nModel (AWS SAM).\nWhich of the following sections is required, aside from the Resources section, that should be in your CloudFormation template?\nMappings\nFormat Version\nTransform\nIncorrect\nFor serverless applications (also referred to as Lambda-based applications), the optional Transform section specifies the version of the AWS\nServerless Application Model (AWS SAM) to use. When you specify a transform, you can use AWS SAM syntax to declare resources in your\ntemplate. The model defines the syntax that you can use and how it is processed.",
+        "options": [
+          "C: ategory: CDA - Deployment",
+          "a: re deploying a serverless application composed of Lambda, API Gateway, CloudFront, and DynamoDB using CloudFormation. The AWS",
+          "A: M syntax should be used to declare resources in your template which requires you to specify the version of the AWS Serverless Application",
+          "d: el (AWS SAM).",
+          "c: h of the following sections is required, aside from the Resources section, that should be in your CloudFormation template?",
+          "a: ppings",
+          "a: t Version",
+          "a: nsform",
+          "c: orrect",
+          "a: pplications (also referred to as Lambda-based applications), the optional Transform section specifies the version of the AWS",
+          "A: pplication Model (AWS SAM) to use. When you specify a transform, you can use AWS SAM syntax to declare resources in your",
+          "a: te. The model defines the syntax that you can use and how it is processed."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "24. QUESTION\nCategory: CDA - Deployment\nYou are deploying a serverless application composed of Lambda, API Gateway, CloudFront, and DynamoDB using CloudFormation. The AWS\nSAM syntax should be used to declare resources in your template which requires you to specify the version of the AWS Serverless Application\nModel (AWS SAM).\nWhich of the following sections is required, aside from the Resources section, that should be in your CloudFormation template?\nMappings\nFormat Version\nTransform\nIncorrect\nFor serverless applications (also referred to as Lambda-based applications), the optional Transform section specifies the version of the AWS\nServerless Application Model (AWS SAM) to use. When you specify a transform, you can use AWS SAM syntax to declare resources in your\ntemplate. The model defines the syntax that you can use and how it is processed."
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "DynamoDB",
+          "CloudFront",
+          "API Gateway",
+          "CloudFormation",
+          "SAM"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Deployment",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "serverless",
+          "deployment"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 212326.png",
+      "parsed": {
+        "question": "Category: CDA - Troubleshooting and Optimization\n\nA developer is managing a distributed system that consists of an Application Load Balancer, an SQS queue, and an Auto Scaling group of EC2\n\ninstances. The system has been integrated with CloudFront to better serve clients worldwide. To enhance the security of the in-flight data, the\n\ndeveloper was instructed to establish an end-to-end SSL connection between the origin and the end-users.\n\nWhich TWO options will allow the developer to meet this requirement using CloudFront? (Select TWO.)\nAssociate a Web ACL using AWS Web Application Firewall (WAF) with your CloudFront Distribution.\nConfigure the Viewer Protocol Policy to use HTTPS only\n\nSet up an Origin Access Control (OAC) setting\nConfigure your ALB to only allow traffic on port 443 using an SSL certificate from AWS Config.\nConfigure the Origin Protocol Policy to use HTTPS only\nIncorrect\nFor web distributions, you can configure CloudFront to require that viewers use HTTPS to request your objects, so connections are encrypted\nwhen CloudFront communicates with viewers. You can also configure CloudFront to use HTTPS to get objects from your origin, so connections are\nencrypted when CloudFront communicates with your origin.\nIf you configure CloudFront to require HTTPS both to communicate with viewers and to communicate with your origin, here's what happens when\nCloudFront receives a request for an object. The process works basically the same way whether your origin is an Amazon S3 bucket or a custom\norigin such as an HTTP/S server:\n\n1. A viewer submits an HTTPS request to CloudFront. There's some SSL/TLS negotiation here between the viewer and CloudFront. In the end,\nthe viewer submits the request in an encrypted format.",
+        "options": [
+          "C: ategory: CDA - Troubleshooting and Optimization",
+          "A: developer is managing a distributed system that consists of an Application Load Balancer, an SQS queue, and an Auto Scaling group of EC2",
+          "a: nces. The system has been integrated with CloudFront to better serve clients worldwide. To enhance the security of the in-flight data, the",
+          "d: eveloper was instructed to establish an end-to-end SSL connection between the origin and the end-users.",
+          "c: h TWO options will allow the developer to meet this requirement using CloudFront? (Select TWO.)",
+          "A: ssociate a Web ACL using AWS Web Application Firewall (WAF) with your CloudFront Distribution.",
+          "C: onfigure the Viewer Protocol Policy to use HTTPS only",
+          "a: n Origin Access Control (OAC) setting",
+          "C: onfigure your ALB to only allow traffic on port 443 using an SSL certificate from AWS Config.",
+          "C: onfigure the Origin Protocol Policy to use HTTPS only",
+          "c: orrect",
+          "b: distributions, you can configure CloudFront to require that viewers use HTTPS to request your objects, so connections are encrypted",
+          "C: loudFront communicates with viewers. You can also configure CloudFront to use HTTPS to get objects from your origin, so connections are",
+          "c: rypted when CloudFront communicates with your origin.",
+          "c: onfigure CloudFront to require HTTPS both to communicate with viewers and to communicate with your origin, here's what happens when",
+          "C: loudFront receives a request for an object. The process works basically the same way whether your origin is an Amazon S3 bucket or a custom",
+          "c: h as an HTTP/S server:",
+          "A: viewer submits an HTTPS request to CloudFront. There's some SSL/TLS negotiation here between the viewer and CloudFront. In the end,",
+          "b: mits the request in an encrypted format."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "25. QUESTION\n\nCategory: CDA - Troubleshooting and Optimization\n\nA developer is managing a distributed system that consists of an Application Load Balancer, an SQS queue, and an Auto Scaling group of EC2\n\ninstances. The system has been integrated with CloudFront to better serve clients worldwide. To enhance the security of the in-flight data, the\n\ndeveloper was instructed to establish an end-to-end SSL connection between the origin and the end-users.\n\nWhich TWO options will allow the developer to meet this requirement using CloudFront? (Select TWO.)\nAssociate a Web ACL using AWS Web Application Firewall (WAF) with your CloudFront Distribution.\nConfigure the Viewer Protocol Policy to use HTTPS only\n\nSet up an Origin Access Control (OAC) setting\nConfigure your ALB to only allow traffic on port 443 using an SSL certificate from AWS Config.\nConfigure the Origin Protocol Policy to use HTTPS only\nIncorrect\nFor web distributions, you can configure CloudFront to require that viewers use HTTPS to request your objects, so connections are encrypted\nwhen CloudFront communicates with viewers. You can also configure CloudFront to use HTTPS to get objects from your origin, so connections are\nencrypted when CloudFront communicates with your origin.\nIf you configure CloudFront to require HTTPS both to communicate with viewers and to communicate with your origin, here's what happens when\nCloudFront receives a request for an object. The process works basically the same way whether your origin is an Amazon S3 bucket or a custom\norigin such as an HTTP/S server:\n\n1. A viewer submits an HTTPS request to CloudFront. There's some SSL/TLS negotiation here between the viewer and CloudFront. In the end,\nthe viewer submits the request in an encrypted format."
+      },
+      "tags": {
+        "services": [
+          "EC2",
+          "S3",
+          "CloudFront",
+          "ALB",
+          "WAF",
+          "SQS",
+          "Config",
+          "SAM"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Security",
+          "Deployment"
+        ],
+        "keywords": [
+          "scaling",
+          "security",
+          "policy",
+          "queue"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 212432.png",
+      "parsed": {
+        "question": "Category: CDA - Troubleshooting and Optimization\nA developer is refactoring a Lambda function that currently processes data using a public GraphQL API. There's a new requirement to store E\nquery results in a database hosted in a VPC. The function has been configured with additional VPC-specific information, and the database\nconnection has been successfully established. However, the engineer has discovered that the function can no longer connect to the internet\nafter testing.\nWhich of the following should the developer do to fix this issue? (Select TWO.)\nSet up elastic network interfaces (ENIs) to enable your Lambda function to connect securely to other resources within your\nprivate VPC.\nEnsure that the associated security group of the Lambda function allows outbound connections.\nSubmit a limit increase request to AWS to raise the concurrent executions limit of your Lambda function.\nConfigure your function to forward payloads that were not processed to a dead-letter queue (DLQ) using Amazon SQS.\nAdd a NAT gateway to your VPC.\nIncorrect\nAWS Lambda uses the VPC information you provide to set up ENIs that allow your Lambda function to access VPC resources. Each EN is assigned\na private IP address from the IP address range within the subnets you specify but is not assigned any public IP addresses.\nSubnets\nSelect the VPC subnets for Lambda to use to set up your VPC configuration. Format: \"subnet-id (cidr-\nblock) | az name-tag\".\nEE —",
+        "options": [
+          "C: ategory: CDA - Troubleshooting and Optimization",
+          "A: developer is refactoring a Lambda function that currently processes data using a public GraphQL API. There's a new requirement to store E",
+          "a: database hosted in a VPC. The function has been configured with additional VPC-specific information, and the database",
+          "c: onnection has been successfully established. However, the engineer has discovered that the function can no longer connect to the internet",
+          "a: fter testing.",
+          "c: h of the following should the developer do to fix this issue? (Select TWO.)",
+          "a: stic network interfaces (ENIs) to enable your Lambda function to connect securely to other resources within your",
+          "a: te VPC.",
+          "a: t the associated security group of the Lambda function allows outbound connections.",
+          "b: mit a limit increase request to AWS to raise the concurrent executions limit of your Lambda function.",
+          "C: onfigure your function to forward payloads that were not processed to a dead-letter queue (DLQ) using Amazon SQS.",
+          "A: dd a NAT gateway to your VPC.",
+          "c: orrect",
+          "A: WS Lambda uses the VPC information you provide to set up ENIs that allow your Lambda function to access VPC resources. Each EN is assigned",
+          "a: private IP address from the IP address range within the subnets you specify but is not assigned any public IP addresses.",
+          "b: nets",
+          "c: t the VPC subnets for Lambda to use to set up your VPC configuration. Format: \"subnet-id (cidr-",
+          "b: lock) | az name-tag\"."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "28. QUESTION\nCategory: CDA - Troubleshooting and Optimization\nA developer is refactoring a Lambda function that currently processes data using a public GraphQL API. There's a new requirement to store E\nquery results in a database hosted in a VPC. The function has been configured with additional VPC-specific information, and the database\nconnection has been successfully established. However, the engineer has discovered that the function can no longer connect to the internet\nafter testing.\nWhich of the following should the developer do to fix this issue? (Select TWO.)\nSet up elastic network interfaces (ENIs) to enable your Lambda function to connect securely to other resources within your\nprivate VPC.\nEnsure that the associated security group of the Lambda function allows outbound connections.\nSubmit a limit increase request to AWS to raise the concurrent executions limit of your Lambda function.\nConfigure your function to forward payloads that were not processed to a dead-letter queue (DLQ) using Amazon SQS.\nAdd a NAT gateway to your VPC.\nIncorrect\nAWS Lambda uses the VPC information you provide to set up ENIs that allow your Lambda function to access VPC resources. Each EN is assigned\na private IP address from the IP address range within the subnets you specify but is not assigned any public IP addresses.\nSubnets\nSelect the VPC subnets for Lambda to use to set up your VPC configuration. Format: \"subnet-id (cidr-\nblock) | az name-tag\".\nEE —"
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "VPC",
+          "SQS",
+          "Config"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "security",
+          "VPC",
+          "subnet",
+          "security group",
+          "queue"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 212457.png",
+      "parsed": {
+        "question": "A\nCategory: CDA - Development with AWS Services n\nA web application is using an ElastiCache cluster that is suffering from cache churn. A developer needs to reconfigure the application so that\ndata are retrieved from the database only in the event that there is a cache miss.\nWhich pseudocode illustrates the caching strategy that the developer needs to implement?\nget_item (item id):\nitem value = cache.get (item id)\nif item value is None:\nitem value = database.query (\"SELECT * FROM Items WHERE id = 2\", item id)\ncache.add (item_id, item value)\nreturn item value",
+        "options": [
+          "A: Category: CDA - Development with AWS Services n",
+          "A: web application is using an ElastiCache cluster that is suffering from cache churn. A developer needs to reconfigure the application so that",
+          "d: ata are retrieved from the database only in the event that there is a cache miss.",
+          "c: h pseudocode illustrates the caching strategy that the developer needs to implement?",
+          "d: :",
+          "a: lue = cache.get (item id)",
+          "a: lue is None:",
+          "a: lue = database.query (\"SELECT * FROM Items WHERE id = 2\", item id)",
+          "c: ache.add (item_id, item value)",
+          "a: lue"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "29. QUESTION A\nCategory: CDA - Development with AWS Services n\nA web application is using an ElastiCache cluster that is suffering from cache churn. A developer needs to reconfigure the application so that\ndata are retrieved from the database only in the event that there is a cache miss.\nWhich pseudocode illustrates the caching strategy that the developer needs to implement?\nget_item (item id):\nitem value = cache.get (item id)\nif item value is None:\nitem value = database.query (\"SELECT * FROM Items WHERE id = 2\", item id)\ncache.add (item_id, item value)\nreturn item value"
+      },
+      "tags": {
+        "services": [
+          "ElastiCache",
+          "Config"
+        ],
+        "domains": [
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "caching"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 212609.png",
+      "parsed": {
+        "question": "Category: CDA - Troubleshooting and Optimization\nA developer has an application that uses a Lambda function to process data from an Aurora MySQL DB Instance in a Virtual Private Cloud\n(VPC). The database throws a MySQL: ERROR 1040: Too many connections error whenever there is a surge in incoming traffic.\nWhich is the most suitable solution for resolving the issue?\nProvision an RDS Proxy between the Lambda function and the RDS database instance\n@® Increase the value of the max connections parameter of the Aurora MySQL DB Instance.\nIncrease the concurrency limit of the Lambda function\nIncrease the allocated memory of your function.\nIncorrect\nIf a “Too Many Connections” error happens to a client connecting to a MySQL database, it means all available connections are in use by other\nclients. Opening a connection consumes resources on the database server. Since Lambda functions can scale to tens of thousands of concurrent\nconnections, your database needs more resources to open and maintain connections instead of executing queries. The maximum number of\nconnections a database can support is largely determined by the amount of memory allocated to it. Upgrading to a database instance with higher\nmemory is a straightforward way of solving the problem. Another approach would be to maintain a connection pool that clients can reuse. This is\nwhere RDS Proxy comes in.",
+        "options": [
+          "C: ategory: CDA - Troubleshooting and Optimization",
+          "A: developer has an application that uses a Lambda function to process data from an Aurora MySQL DB Instance in a Virtual Private Cloud",
+          "C: . The database throws a MySQL: ERROR 1040: Too many connections error whenever there is a surge in incoming traffic.",
+          "c: h is the most suitable solution for resolving the issue?",
+          "a: n RDS Proxy between the Lambda function and the RDS database instance",
+          "c: rease the value of the max connections parameter of the Aurora MySQL DB Instance.",
+          "c: rease the concurrency limit of the Lambda function",
+          "c: rease the allocated memory of your function.",
+          "c: orrect",
+          "a: “Too Many Connections” error happens to a client connecting to a MySQL database, it means all available connections are in use by other",
+          "c: lients. Opening a connection consumes resources on the database server. Since Lambda functions can scale to tens of thousands of concurrent",
+          "c: onnections, your database needs more resources to open and maintain connections instead of executing queries. The maximum number of",
+          "c: onnections a database can support is largely determined by the amount of memory allocated to it. Upgrading to a database instance with higher",
+          "a: straightforward way of solving the problem. Another approach would be to maintain a connection pool that clients can reuse. This is",
+          "D: S Proxy comes in."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "30. QUESTION\nCategory: CDA - Troubleshooting and Optimization\nA developer has an application that uses a Lambda function to process data from an Aurora MySQL DB Instance in a Virtual Private Cloud\n(VPC). The database throws a MySQL: ERROR 1040: Too many connections error whenever there is a surge in incoming traffic.\nWhich is the most suitable solution for resolving the issue?\nProvision an RDS Proxy between the Lambda function and the RDS database instance\n@® Increase the value of the max connections parameter of the Aurora MySQL DB Instance.\nIncrease the concurrency limit of the Lambda function\nIncrease the allocated memory of your function.\nIncorrect\nIf a “Too Many Connections” error happens to a client connecting to a MySQL database, it means all available connections are in use by other\nclients. Opening a connection consumes resources on the database server. Since Lambda functions can scale to tens of thousands of concurrent\nconnections, your database needs more resources to open and maintain connections instead of executing queries. The maximum number of\nconnections a database can support is largely determined by the amount of memory allocated to it. Upgrading to a database instance with higher\nmemory is a straightforward way of solving the problem. Another approach would be to maintain a connection pool that clients can reuse. This is\nwhere RDS Proxy comes in."
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "RDS",
+          "Aurora",
+          "VPC"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "VPC"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 212734.png",
+      "parsed": {
+        "question": "Category: CDA - Development with AWS Services\nA company operates an e-commerce website on Amazon Elastic Container Service (ECS) behind an Application Load Balancer (ALB). They've\nset their ALB as an origin for an Amazon CloudFront distribution. Users interact with the website via a custom domain linked to the CloudFront\ndistribution, all maintained within a public hosted zone in Amazon Route 53.\nThe company wants to display region-specific pricing tables to its users. For example, when a user from the UK visits the site, they should be\nredirected to https: //tutorialsdojo.com/uk/ , while users from the Philippines should view prices on\nhttps://tutorialsdojo.com/ph/\nHow can a developer incorporate this feature in the least amount of development overhead?\nForward the cloudFront-Viewer-Address header to the web server running on the ECS cluster. Implement a custom logic\nthat matches the header’s value against a GeolP database to determine user location. Based on the resolved location,\nredirect users to the appropriate region-specific URL.\nUse AWS Web Application Firewall (WAF's) geo-matching rule to identify the user country and attach it to the ALB. Configure\nALB listener rules with path conditions to route traffic based on the identified country.\nImplement a CloudFront function that returns the appropriate URL based on the cloudfFront-viewer-cCountry . Configure\nthe distribution to trigger the function on viewer request events.\n@® Configure the Route 53 record to use the geolocation routing policy.",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services",
+          "A: company operates an e-commerce website on Amazon Elastic Container Service (ECS) behind an Application Load Balancer (ALB). They've",
+          "A: LB as an origin for an Amazon CloudFront distribution. Users interact with the website via a custom domain linked to the CloudFront",
+          "d: istribution, all maintained within a public hosted zone in Amazon Route 53.",
+          "c: ompany wants to display region-specific pricing tables to its users. For example, when a user from the UK visits the site, they should be",
+          "d: irected to https: //tutorialsdojo.com/uk/ , while users from the Philippines should view prices on",
+          "a: lsdojo.com/ph/",
+          "c: an a developer incorporate this feature in the least amount of development overhead?",
+          "a: rd the cloudFront-Viewer-Address header to the web server running on the ECS cluster. Implement a custom logic",
+          "a: t matches the header’s value against a GeolP database to determine user location. Based on the resolved location,",
+          "d: irect users to the appropriate region-specific URL.",
+          "A: WS Web Application Firewall (WAF's) geo-matching rule to identify the user country and attach it to the ALB. Configure",
+          "A: LB listener rules with path conditions to route traffic based on the identified country.",
+          "a: CloudFront function that returns the appropriate URL based on the cloudfFront-viewer-cCountry . Configure",
+          "d: istribution to trigger the function on viewer request events.",
+          "C: onfigure the Route 53 record to use the geolocation routing policy."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "31. QUESTION\nCategory: CDA - Development with AWS Services\nA company operates an e-commerce website on Amazon Elastic Container Service (ECS) behind an Application Load Balancer (ALB). They've\nset their ALB as an origin for an Amazon CloudFront distribution. Users interact with the website via a custom domain linked to the CloudFront\ndistribution, all maintained within a public hosted zone in Amazon Route 53.\nThe company wants to display region-specific pricing tables to its users. For example, when a user from the UK visits the site, they should be\nredirected to https: //tutorialsdojo.com/uk/ , while users from the Philippines should view prices on\nhttps://tutorialsdojo.com/ph/\nHow can a developer incorporate this feature in the least amount of development overhead?\nForward the cloudFront-Viewer-Address header to the web server running on the ECS cluster. Implement a custom logic\nthat matches the header’s value against a GeolP database to determine user location. Based on the resolved location,\nredirect users to the appropriate region-specific URL.\nUse AWS Web Application Firewall (WAF's) geo-matching rule to identify the user country and attach it to the ALB. Configure\nALB listener rules with path conditions to route traffic based on the identified country.\nImplement a CloudFront function that returns the appropriate URL based on the cloudfFront-viewer-cCountry . Configure\nthe distribution to trigger the function on viewer request events.\n@® Configure the Route 53 record to use the geolocation routing policy."
+      },
+      "tags": {
+        "services": [
+          "ECS",
+          "EBS",
+          "CloudFront",
+          "Route 53",
+          "ALB",
+          "WAF",
+          "Config"
+        ],
+        "domains": [
+          "Security"
+        ],
+        "keywords": [
+          "container",
+          "policy"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 212820.png",
+      "parsed": {
+        "question": "Category: CDA - Development with AWS Services .\nA web application is running in an ECS Cluster and updates data in DynamoDB several times a day. The clients retrieve data directly from the i\nDynamoDB through APIs exposed by Amazon API Gateway. Although API caching is enabled, there are specific clients that want to retrieve the\nlatest data from DynamoDB for every API request sent.\nWhat should be done to only allow authorized clients to invalidate an API Gateway cache entry when submitting API requests? (Select TWO.)\nThe client must send a request which contains the cache-Control: max-age=1 header.\nThe client must send a request which contains the cache-Control: max-age=0 header.\nTick the Require Authorization checkbox inthe Cache Settings of your API via the console.\nModify the cache settings to retrieve the latest data from DynamoDB if the request header's authorization signature matches\nyour API's trusted clients list.\nProvide your clients an authorization token from STS to query data directly from DynamoDB.\nIncorrect\nA client of your API can invalidate an existing cache entry and reload it from the integration endpoint for individual requests. The client must send a\nrequest that contains the Cache-Control: max-age=0 header. The client receives the response directly from the integration endpoint\ninstead of the cache, provided that the client is authorized to do so. This replaces the existing cache entry with the new response, which is\nfetched from the integration endpoint.",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services .",
+          "A: web application is running in an ECS Cluster and updates data in DynamoDB several times a day. The clients retrieve data directly from the i",
+          "D: ynamoDB through APIs exposed by Amazon API Gateway. Although API caching is enabled, there are specific clients that want to retrieve the",
+          "a: test data from DynamoDB for every API request sent.",
+          "a: t should be done to only allow authorized clients to invalidate an API Gateway cache entry when submitting API requests? (Select TWO.)",
+          "c: lient must send a request which contains the cache-Control: max-age=1 header.",
+          "c: lient must send a request which contains the cache-Control: max-age=0 header.",
+          "c: k the Require Authorization checkbox inthe Cache Settings of your API via the console.",
+          "d: ify the cache settings to retrieve the latest data from DynamoDB if the request header's authorization signature matches",
+          "A: PI's trusted clients list.",
+          "d: e your clients an authorization token from STS to query data directly from DynamoDB.",
+          "c: orrect",
+          "A: client of your API can invalidate an existing cache entry and reload it from the integration endpoint for individual requests. The client must send a",
+          "a: t contains the Cache-Control: max-age=0 header. The client receives the response directly from the integration endpoint",
+          "a: d of the cache, provided that the client is authorized to do so. This replaces the existing cache entry with the new response, which is",
+          "c: hed from the integration endpoint."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "32. QUESTION\nCategory: CDA - Development with AWS Services .\nA web application is running in an ECS Cluster and updates data in DynamoDB several times a day. The clients retrieve data directly from the i\nDynamoDB through APIs exposed by Amazon API Gateway. Although API caching is enabled, there are specific clients that want to retrieve the\nlatest data from DynamoDB for every API request sent.\nWhat should be done to only allow authorized clients to invalidate an API Gateway cache entry when submitting API requests? (Select TWO.)\nThe client must send a request which contains the cache-Control: max-age=1 header.\nThe client must send a request which contains the cache-Control: max-age=0 header.\nTick the Require Authorization checkbox inthe Cache Settings of your API via the console.\nModify the cache settings to retrieve the latest data from DynamoDB if the request header's authorization signature matches\nyour API's trusted clients list.\nProvide your clients an authorization token from STS to query data directly from DynamoDB.\nIncorrect\nA client of your API can invalidate an existing cache entry and reload it from the integration endpoint for individual requests. The client must send a\nrequest that contains the Cache-Control: max-age=0 header. The client receives the response directly from the integration endpoint\ninstead of the cache, provided that the client is authorized to do so. This replaces the existing cache entry with the new response, which is\nfetched from the integration endpoint."
+      },
+      "tags": {
+        "services": [
+          "ECS",
+          "DynamoDB",
+          "API Gateway"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "caching",
+          "authorization"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 212854.png",
+      "parsed": {
+        "question": "Category: CDA - Development with AWS Services\nA website hosted in AWS has a custom CloudWatch metric to track all HTTP server errors in the site every minute, which occurs intermittently.\nAn existing CloudWatch Alarm has already been configured for this metric but you would like to re-configure this to properly monitor the\napplication. The alarm should only be triggered when all three data points in the most recent three consecutive periods are above the\nthreshold.\nWhich of the following options is the MOST appropriate way to monitor the website based on the given threshold?\nSet both the Period and Datapoints to Alarm to 3.\nUse high-resolution metrics.\n@ Setboththe Evaluation Period and Datapoints to Alarm to 3.\nUse metric math in CloudWatch to properly compute the threshold.\nCorrect\nWhen you create an alarm, you specify three settings to enable CloudWatch to evaluate when to change the alarm state:\n— Period is the length of time to evaluate the metric or expression to create each individual data point for an alarm. It is expressed in seconds.\nIf you choose one minute as the period, there is one datapoint every minute.\n— Evaluation Period is the number of the most recent periods, or data points, to evaluate when determining alarm state.\n- Datapoints to Alarm is the number of data points within the evaluation period that must be breaching to cause the alarm to go to\nthe ALARM state. The breaching data points do not have to be consecutive, they just must all be within the last number of data points equal\nto Evaluation Period.",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services",
+          "A: website hosted in AWS has a custom CloudWatch metric to track all HTTP server errors in the site every minute, which occurs intermittently.",
+          "A: n existing CloudWatch Alarm has already been configured for this metric but you would like to re-configure this to properly monitor the",
+          "a: pplication. The alarm should only be triggered when all three data points in the most recent three consecutive periods are above the",
+          "d: Which of the following options is the MOST appropriate way to monitor the website based on the given threshold?",
+          "b: oth the Period and Datapoints to Alarm to 3.",
+          "c: s.",
+          "b: oththe Evaluation Period and Datapoints to Alarm to 3.",
+          "c: math in CloudWatch to properly compute the threshold.",
+          "C: orrect",
+          "c: reate an alarm, you specify three settings to enable CloudWatch to evaluate when to change the alarm state:",
+          "d: is the length of time to evaluate the metric or expression to create each individual data point for an alarm. It is expressed in seconds.",
+          "c: hoose one minute as the period, there is one datapoint every minute.",
+          "a: luation Period is the number of the most recent periods, or data points, to evaluate when determining alarm state.",
+          "D: atapoints to Alarm is the number of data points within the evaluation period that must be breaching to cause the alarm to go to",
+          "A: LARM state. The breaching data points do not have to be consecutive, they just must all be within the last number of data points equal",
+          "a: luation Period."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "33. QUESTION\nCategory: CDA - Development with AWS Services\nA website hosted in AWS has a custom CloudWatch metric to track all HTTP server errors in the site every minute, which occurs intermittently.\nAn existing CloudWatch Alarm has already been configured for this metric but you would like to re-configure this to properly monitor the\napplication. The alarm should only be triggered when all three data points in the most recent three consecutive periods are above the\nthreshold.\nWhich of the following options is the MOST appropriate way to monitor the website based on the given threshold?\nSet both the Period and Datapoints to Alarm to 3.\nUse high-resolution metrics.\n@ Setboththe Evaluation Period and Datapoints to Alarm to 3.\nUse metric math in CloudWatch to properly compute the threshold.\nCorrect\nWhen you create an alarm, you specify three settings to enable CloudWatch to evaluate when to change the alarm state:\n— Period is the length of time to evaluate the metric or expression to create each individual data point for an alarm. It is expressed in seconds.\nIf you choose one minute as the period, there is one datapoint every minute.\n— Evaluation Period is the number of the most recent periods, or data points, to evaluate when determining alarm state.\n- Datapoints to Alarm is the number of data points within the evaluation period that must be breaching to cause the alarm to go to\nthe ALARM state. The breaching data points do not have to be consecutive, they just must all be within the last number of data points equal\nto Evaluation Period."
+      },
+      "tags": {
+        "services": [
+          "EBS",
+          "CloudWatch",
+          "Config"
+        ],
+        "domains": [
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": []
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 212921.png",
+      "parsed": {
+        "question": "Category: CDA - Development with AWS Services\nA developer is working on an application which stores data to an Amazon DynamoDB table with the DynamoDB Streams feature enabled. He\nset up an event source mapping with DynamoDB Streams and AWS Lambda function to monitor any table changes then store the original data\nof the overwritten item in S3. When an item is updated, it should only send a copy of the item's previous value to an S3 bucket and maintain\nthe new value in the DynamoDB table.\nWhich streamviewType isthe MOST suitable one to use in the DynamoDB configuration to fulfill this scenario?\nKEYS_ONLY\nOLD_IMAGE\nNEW_AND_ OLD_IMAGES\nIncorrect\nDynamoDB Streams provides a time-ordered sequence of item level changes in any DynamoDB table. The changes are de-duplicated and stored\nfor 24 hours. Applications can access this log and view the data items as they appeared before and after they were modified, in near real time.",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services",
+          "A: developer is working on an application which stores data to an Amazon DynamoDB table with the DynamoDB Streams feature enabled. He",
+          "a: n event source mapping with DynamoDB Streams and AWS Lambda function to monitor any table changes then store the original data",
+          "a: n item is updated, it should only send a copy of the item's previous value to an S3 bucket and maintain",
+          "a: lue in the DynamoDB table.",
+          "c: h streamviewType isthe MOST suitable one to use in the DynamoDB configuration to fulfill this scenario?",
+          "D: _IMAGE",
+          "A: ND_ OLD_IMAGES",
+          "c: orrect",
+          "D: ynamoDB Streams provides a time-ordered sequence of item level changes in any DynamoDB table. The changes are de-duplicated and stored",
+          "A: pplications can access this log and view the data items as they appeared before and after they were modified, in near real time."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "34. QUESTION\nCategory: CDA - Development with AWS Services\nA developer is working on an application which stores data to an Amazon DynamoDB table with the DynamoDB Streams feature enabled. He\nset up an event source mapping with DynamoDB Streams and AWS Lambda function to monitor any table changes then store the original data\nof the overwritten item in S3. When an item is updated, it should only send a copy of the item's previous value to an S3 bucket and maintain\nthe new value in the DynamoDB table.\nWhich streamviewType isthe MOST suitable one to use in the DynamoDB configuration to fulfill this scenario?\nKEYS_ONLY\nOLD_IMAGE\nNEW_AND_ OLD_IMAGES\nIncorrect\nDynamoDB Streams provides a time-ordered sequence of item level changes in any DynamoDB table. The changes are de-duplicated and stored\nfor 24 hours. Applications can access this log and view the data items as they appeared before and after they were modified, in near real time."
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "S3",
+          "DynamoDB",
+          "Config"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": []
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 213037.png",
+      "parsed": {
+        "question": "Category: CDA - Security\nA developer is creating an analytics REST API service that is powered by API Gateway. Analysts from a separate AWS account must interact Ei\nwith the service through an IAM role. The IAM role already has a policy that grants permission to invoke the API.\nWhat else should the developer do to meet the requirement without too much overhead?\nCreate a Cognito User Pool authorizer. Add the IAM role to the user pool. Authenticate the requester’s identity using Cognito.\nAsk the analysts to pass the token returned by Cognito in their request headers.\n® Create a Lambda function authorizer for the API. In the Lambda function, write a logic that verifies the requester’s identity by\nextracting the information from the context object.\nCreate an API Key for the API. Attach a resource policy to the API that grants permission to the specified IAM role to invoke\nthe GetAPIKeys action.\nSet aws IaM as the method authorization type for the API. Attach a resource policy to the API that grants permission to the\nspecified IAM role to invoke the execute-api:Invoke action.\nIncorrect\nBy using AWS_IAM as the method authorization type, it ensures that the API can only be accessed by IAM identities such as IAM users or IAM\nroles. Attaching a resource policy to the API that grants permission to the specified IAM role to invoke the execute-api:Invoke action allows\nthe specified IAM role to make authorized requests to the API while denying access to any other unauthorized users or roles.\n{\n\"Version\": \"2012-10-17\",\n\"Statement\": [\n1 {",
+        "options": [
+          "C: ategory: CDA - Security",
+          "A: developer is creating an analytics REST API service that is powered by API Gateway. Analysts from a separate AWS account must interact Ei",
+          "c: e through an IAM role. The IAM role already has a policy that grants permission to invoke the API.",
+          "a: t else should the developer do to meet the requirement without too much overhead?",
+          "C: reate a Cognito User Pool authorizer. Add the IAM role to the user pool. Authenticate the requester’s identity using Cognito.",
+          "A: sk the analysts to pass the token returned by Cognito in their request headers.",
+          "C: reate a Lambda function authorizer for the API. In the Lambda function, write a logic that verifies the requester’s identity by",
+          "a: cting the information from the context object.",
+          "C: reate an API Key for the API. Attach a resource policy to the API that grants permission to the specified IAM role to invoke",
+          "A: PIKeys action.",
+          "a: ws IaM as the method authorization type for the API. Attach a resource policy to the API that grants permission to the",
+          "c: ified IAM role to invoke the execute-api:Invoke action.",
+          "c: orrect",
+          "B: y using AWS_IAM as the method authorization type, it ensures that the API can only be accessed by IAM identities such as IAM users or IAM",
+          "A: ttaching a resource policy to the API that grants permission to the specified IAM role to invoke the execute-api:Invoke action allows",
+          "c: ified IAM role to make authorized requests to the API while denying access to any other unauthorized users or roles.",
+          "a: tement\": ["
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "36. QUESTION\nCategory: CDA - Security\nA developer is creating an analytics REST API service that is powered by API Gateway. Analysts from a separate AWS account must interact Ei\nwith the service through an IAM role. The IAM role already has a policy that grants permission to invoke the API.\nWhat else should the developer do to meet the requirement without too much overhead?\nCreate a Cognito User Pool authorizer. Add the IAM role to the user pool. Authenticate the requester’s identity using Cognito.\nAsk the analysts to pass the token returned by Cognito in their request headers.\n® Create a Lambda function authorizer for the API. In the Lambda function, write a logic that verifies the requester’s identity by\nextracting the information from the context object.\nCreate an API Key for the API. Attach a resource policy to the API that grants permission to the specified IAM role to invoke\nthe GetAPIKeys action.\nSet aws IaM as the method authorization type for the API. Attach a resource policy to the API that grants permission to the\nspecified IAM role to invoke the execute-api:Invoke action.\nIncorrect\nBy using AWS_IAM as the method authorization type, it ensures that the API can only be accessed by IAM identities such as IAM users or IAM\nroles. Attaching a resource policy to the API that grants permission to the specified IAM role to invoke the execute-api:Invoke action allows\nthe specified IAM role to make authorized requests to the API while denying access to any other unauthorized users or roles.\n{\n\"Version\": \"2012-10-17\",\n\"Statement\": [\n1 {"
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "API Gateway",
+          "IAM",
+          "Cognito"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Security",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "security",
+          "authorization",
+          "IAM role",
+          "policy"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 213113.png",
+      "parsed": {
+        "question": "Category: CDA - Development with AWS Services\nA recruitment agency has a large collection of resumes stored in an Amazon S3 bucket. The agency wants to perform an analysis on these\nfiles, but for privacy compliance reasons, they need to ensure that certain personally identifiable information (Pll) is redacted before being\nprocessed by their internal service.\nWhich solution can meet the requirements in the most cost-effective way?\nImplement a solution with AWS Glue to transform the data and redact Pll before storing it in an S3 bucket.\nUse a Lambda function to create a redacted copy of each file in a separate S3 bucket. Then, set up an Amazon S3 Access\nPoint to serve these files.\nUse Amazon S3 Object Lambda to redact Pll before it is returned to the application.\n® Configure an Amazon S3 Access Point and set up an Amazon CloudFront distribution with a Lambda@Edge function to redact\nthe Pll as data is fetched from the S3 bucket.\nIncorrect\nS3 Object Lambda allows you to add your own code to S3 GET requests to modify and process data as it's being returned to an application. This\nfeature is designed for use cases where data needs to be transformed on-the-fly without the need to store a transformed copy of the data. It's\nuseful in scenarios like filtering rows, redacting confidential data, dynamically resizing images and other similar situations where data\ntransformation or processing is required during data retrieval.\n[~ | AWS Cloud",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services",
+          "A: recruitment agency has a large collection of resumes stored in an Amazon S3 bucket. The agency wants to perform an analysis on these",
+          "b: ut for privacy compliance reasons, they need to ensure that certain personally identifiable information (Pll) is redacted before being",
+          "c: essed by their internal service.",
+          "c: h solution can meet the requirements in the most cost-effective way?",
+          "a: solution with AWS Glue to transform the data and redact Pll before storing it in an S3 bucket.",
+          "a: Lambda function to create a redacted copy of each file in a separate S3 bucket. Then, set up an Amazon S3 Access",
+          "A: mazon S3 Object Lambda to redact Pll before it is returned to the application.",
+          "C: onfigure an Amazon S3 Access Point and set up an Amazon CloudFront distribution with a Lambda@Edge function to redact",
+          "a: s data is fetched from the S3 bucket.",
+          "c: orrect",
+          "b: ject Lambda allows you to add your own code to S3 GET requests to modify and process data as it's being returned to an application. This",
+          "a: ture is designed for use cases where data needs to be transformed on-the-fly without the need to store a transformed copy of the data. It's",
+          "c: enarios like filtering rows, redacting confidential data, dynamically resizing images and other similar situations where data",
+          "a: nsformation or processing is required during data retrieval.",
+          "A: WS Cloud"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "37. QUESTION\nCategory: CDA - Development with AWS Services\nA recruitment agency has a large collection of resumes stored in an Amazon S3 bucket. The agency wants to perform an analysis on these\nfiles, but for privacy compliance reasons, they need to ensure that certain personally identifiable information (Pll) is redacted before being\nprocessed by their internal service.\nWhich solution can meet the requirements in the most cost-effective way?\nImplement a solution with AWS Glue to transform the data and redact Pll before storing it in an S3 bucket.\nUse a Lambda function to create a redacted copy of each file in a separate S3 bucket. Then, set up an Amazon S3 Access\nPoint to serve these files.\nUse Amazon S3 Object Lambda to redact Pll before it is returned to the application.\n® Configure an Amazon S3 Access Point and set up an Amazon CloudFront distribution with a Lambda@Edge function to redact\nthe Pll as data is fetched from the S3 bucket.\nIncorrect\nS3 Object Lambda allows you to add your own code to S3 GET requests to modify and process data as it's being returned to an application. This\nfeature is designed for use cases where data needs to be transformed on-the-fly without the need to store a transformed copy of the data. It's\nuseful in scenarios like filtering rows, redacting confidential data, dynamically resizing images and other similar situations where data\ntransformation or processing is required during data retrieval.\n[~ | AWS Cloud"
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "S3",
+          "CloudFront",
+          "Config",
+          "ECR"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": []
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 213135.png",
+      "parsed": {
+        "question": "uests to modify and process data as it's being returned to an application. This\nfeature is designed for use cases where data needs to be transformed on-the-fly without the need to store a transformed copy of the data. It's\nuseful in scenarios like filtering rows, redacting confidential data, dynamically resizing images and other similar situations where data\ntransformation or processing is required during data retrieval.\n[@) AWS Cloud\nOriginal Object\nS3 Bucket\n—\nE-commerce J\nApplication 54) Supporting\nS3 Object Lambda Redacting & $3 Access Point\nAccess Point Lambda Function\nOO Redacted Object a\n>\n—™ (©) ®\nAnalytics\nApplication\nS3 Object Lambda Enriching\nAccess Point Lambda Function\n(I) Enriched Object (2\n>\n—= KON\nMarketing\nApplication Customer Loyalty\nDatabase\nIn the scenario, when the internal service fetches a file from the S3 bucket, S3 Object Lambda will run a Lambda function to redact the Pll from the\ndata as it is being retrieved before it is returned to the application. This eliminates the need to create and store a separate, redacted copy of each\nresume, thereby saving on storage costs. Plus, since the redaction happens during data retrieval, there's no need to create a proxy for the internal\nservice. This makes the solution efficient and cost-effective.\nHence, the correct answer is: Use Amazon S3 Object Lambda to redact PII before it is returned to the application.\n|]\nTAB TT BR A EE a SAE PE ees we. SE AE SO SIRE TNF ET JE 00 eo Pa PTR SEAL",
+        "options": [
+          "c: orrect",
+          "b: ject Lambda allows you to add your own code to S3 GET requests to modify and process data as it's being returned to an application. This",
+          "a: ture is designed for use cases where data needs to be transformed on-the-fly without the need to store a transformed copy of the data. It's",
+          "c: enarios like filtering rows, redacting confidential data, dynamically resizing images and other similar situations where data",
+          "a: nsformation or processing is required during data retrieval.",
+          "A: WS Cloud",
+          "a: l Object",
+          "B: ucket",
+          "c: ommerce J",
+          "A: pplication 54) Supporting",
+          "b: ject Lambda Redacting & $3 Access Point",
+          "A: ccess Point Lambda Function",
+          "d: acted Object a",
+          "A: nalytics",
+          "A: pplication",
+          "b: ject Lambda Enriching",
+          "A: ccess Point Lambda Function",
+          "c: hed Object (2",
+          "a: rketing",
+          "A: pplication Customer Loyalty",
+          "D: atabase",
+          "c: enario, when the internal service fetches a file from the S3 bucket, S3 Object Lambda will run a Lambda function to redact the Pll from the",
+          "d: ata as it is being retrieved before it is returned to the application. This eliminates the need to create and store a separate, redacted copy of each",
+          "b: y saving on storage costs. Plus, since the redaction happens during data retrieval, there's no need to create a proxy for the internal",
+          "c: e. This makes the solution efficient and cost-effective.",
+          "c: e, the correct answer is: Use Amazon S3 Object Lambda to redact PII before it is returned to the application.",
+          "A: B TT BR A EE a SAE PE ees we. SE AE SO SIRE TNF ET JE 00 eo Pa PTR SEAL"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "Incorrect\nS3 Object Lambda allows you to add your own code to S3 GET requests to modify and process data as it's being returned to an application. This\nfeature is designed for use cases where data needs to be transformed on-the-fly without the need to store a transformed copy of the data. It's\nuseful in scenarios like filtering rows, redacting confidential data, dynamically resizing images and other similar situations where data\ntransformation or processing is required during data retrieval.\n[@) AWS Cloud\nOriginal Object\nS3 Bucket\n—\nE-commerce J\nApplication 54) Supporting\nS3 Object Lambda Redacting & $3 Access Point\nAccess Point Lambda Function\nOO Redacted Object a\n>\n—™ (©) ®\nAnalytics\nApplication\nS3 Object Lambda Enriching\nAccess Point Lambda Function\n(I) Enriched Object (2\n>\n—= KON\nMarketing\nApplication Customer Loyalty\nDatabase\nIn the scenario, when the internal service fetches a file from the S3 bucket, S3 Object Lambda will run a Lambda function to redact the Pll from the\ndata as it is being retrieved before it is returned to the application. This eliminates the need to create and store a separate, redacted copy of each\nresume, thereby saving on storage costs. Plus, since the redaction happens during data retrieval, there's no need to create a proxy for the internal\nservice. This makes the solution efficient and cost-effective.\nHence, the correct answer is: Use Amazon S3 Object Lambda to redact PII before it is returned to the application.\n|]\nTAB TT BR A EE a SAE PE ees we. SE AE SO SIRE TNF ET JE 00 eo Pa PTR SEAL"
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "S3"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": []
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 213237.png",
+      "parsed": {
+        "question": "Category: CDA - Development with AWS Services\nA mobile game is using a DynamoDB table named GameScore that keeps track of users and scores. Each item in the table is identified by a\npartition key (Userld) and a sort key (GameTitle). The diagram below shows how the items in the table are organized:\nGameScores\nUserld GameTitle TopScore ~~ TopScoreDateTime Wins Losses\nA developer wants to write a leaderboard application to display the top scores for each game.\nHow can the developer meet the requirement in the MOST efficient manner?\nCreate a local secondary index. Assign the TopScore attribute as the partition key and the GameTitle attribute as the sort key.\n® Create a local secondary index. Assign the GameTitle attribute as the partition key and the TopScore attribute as the sort key.\nCreate a global secondary index. Assign the GameTitle attribute as the partition key and the TopScore attribute as the sort\nkey.\nm",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services",
+          "A: mobile game is using a DynamoDB table named GameScore that keeps track of users and scores. Each item in the table is identified by a",
+          "a: rtition key (Userld) and a sort key (GameTitle). The diagram below shows how the items in the table are organized:",
+          "a: meScores",
+          "d: GameTitle TopScore ~~ TopScoreDateTime Wins Losses",
+          "A: developer wants to write a leaderboard application to display the top scores for each game.",
+          "c: an the developer meet the requirement in the MOST efficient manner?",
+          "C: reate a local secondary index. Assign the TopScore attribute as the partition key and the GameTitle attribute as the sort key.",
+          "C: reate a local secondary index. Assign the GameTitle attribute as the partition key and the TopScore attribute as the sort key.",
+          "C: reate a global secondary index. Assign the GameTitle attribute as the partition key and the TopScore attribute as the sort"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "38. QUESTION\nCategory: CDA - Development with AWS Services\nA mobile game is using a DynamoDB table named GameScore that keeps track of users and scores. Each item in the table is identified by a\npartition key (Userld) and a sort key (GameTitle). The diagram below shows how the items in the table are organized:\nGameScores\nUserld GameTitle TopScore ~~ TopScoreDateTime Wins Losses\nA developer wants to write a leaderboard application to display the top scores for each game.\nHow can the developer meet the requirement in the MOST efficient manner?\nCreate a local secondary index. Assign the TopScore attribute as the partition key and the GameTitle attribute as the sort key.\n® Create a local secondary index. Assign the GameTitle attribute as the partition key and the TopScore attribute as the sort key.\nCreate a global secondary index. Assign the GameTitle attribute as the partition key and the TopScore attribute as the sort\nkey.\nm"
+      },
+      "tags": {
+        "services": [
+          "DynamoDB"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": []
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 213319.png",
+      "parsed": {
+        "question": "E\nCategory: CDA - Development with AWS Services\nA developer has recently completed a new version of a serverless application that is ready to be deployed using AWS SAM. There is a\nrequirement that the traffic should shift from the previous Lambda function to the new version in the shortest time possible, but you still don’t\nwant to shift traffic all-at-once immediately.\nWhich deployment configuration is the MOST suitable one to use in this scenario?\n() CodeDeployDefault.LambdaLinearlOPercentEvery2Minutes\nCodeDeployDefault.LambdaLinearlOPercentEverylMinute\nCodeDeployDefault.LambdaCanarylOPercent5Minutes\nCodeDeployDefault.HalfAtATime\nIncorrect\nIf you use AWS SAM to create your serverless application, it comes built-in with CodeDeploy to help ensure safe Lambda deployments. There are\nvarious deployment preference types that you can choose from.\nFor example:\nIf you choose CanarylOPercentlOMinutes then 10 percent of your customer traffic is immediately shifted to your new version. After 10\nminutes, all traffic is shifted to the new version.",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services",
+          "A: developer has recently completed a new version of a serverless application that is ready to be deployed using AWS SAM. There is a",
+          "a: t the traffic should shift from the previous Lambda function to the new version in the shortest time possible, but you still don’t",
+          "a: nt to shift traffic all-at-once immediately.",
+          "c: h deployment configuration is the MOST suitable one to use in this scenario?",
+          "C: odeDeployDefault.LambdaLinearlOPercentEvery2Minutes",
+          "C: odeDeployDefault.LambdaLinearlOPercentEverylMinute",
+          "C: odeDeployDefault.LambdaCanarylOPercent5Minutes",
+          "C: odeDeployDefault.HalfAtATime",
+          "c: orrect",
+          "A: WS SAM to create your serverless application, it comes built-in with CodeDeploy to help ensure safe Lambda deployments. There are",
+          "a: rious deployment preference types that you can choose from.",
+          "a: mple:",
+          "c: hoose CanarylOPercentlOMinutes then 10 percent of your customer traffic is immediately shifted to your new version. After 10",
+          "a: ll traffic is shifted to the new version."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "39. QUESTION E\nCategory: CDA - Development with AWS Services\nA developer has recently completed a new version of a serverless application that is ready to be deployed using AWS SAM. There is a\nrequirement that the traffic should shift from the previous Lambda function to the new version in the shortest time possible, but you still don’t\nwant to shift traffic all-at-once immediately.\nWhich deployment configuration is the MOST suitable one to use in this scenario?\n() CodeDeployDefault.LambdaLinearlOPercentEvery2Minutes\nCodeDeployDefault.LambdaLinearlOPercentEverylMinute\nCodeDeployDefault.LambdaCanarylOPercent5Minutes\nCodeDeployDefault.HalfAtATime\nIncorrect\nIf you use AWS SAM to create your serverless application, it comes built-in with CodeDeploy to help ensure safe Lambda deployments. There are\nvarious deployment preference types that you can choose from.\nFor example:\nIf you choose CanarylOPercentlOMinutes then 10 percent of your customer traffic is immediately shifted to your new version. After 10\nminutes, all traffic is shifted to the new version."
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "CodeDeploy",
+          "Config",
+          "SAM"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Deployment",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "serverless",
+          "deployment",
+          "canary"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 213350.png",
+      "parsed": {
+        "question": "n\nCategory: CDA - Security\nA serverless application is composed of several Lambda functions which reads data from RDS. These functions must share the same\nconnection string that should be encrypted to improve data security.\nWhich of the following is the MOST secure way to meet the above requirement?\n® Use AWS Lambda environment variables encrypted with KMS which will be shared by the Lambda functions.\nCreate a Secure String Parameter using the AWS Systems Manager Parameter Store.\nCreate an IAM Execution Role that has access to RDS and attach it to the Lambda functions.\nUse AWS Lambda environment variables encrypted with CloudHSM.\nIncorrect\nAWS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management. You\ncan store data such as passwords, database strings, and license codes as parameter values. You can store values as plain text or encrypted data.\nYou can then reference values by using the unique name that you specified when you created the parameter.\nParameter Parameter Parameter Encrypt _\nname value value\n| Parameter Store P—",
+        "options": [
+          "C: ategory: CDA - Security",
+          "A: serverless application is composed of several Lambda functions which reads data from RDS. These functions must share the same",
+          "c: onnection string that should be encrypted to improve data security.",
+          "c: h of the following is the MOST secure way to meet the above requirement?",
+          "A: WS Lambda environment variables encrypted with KMS which will be shared by the Lambda functions.",
+          "C: reate a Secure String Parameter using the AWS Systems Manager Parameter Store.",
+          "C: reate an IAM Execution Role that has access to RDS and attach it to the Lambda functions.",
+          "A: WS Lambda environment variables encrypted with CloudHSM.",
+          "c: orrect",
+          "A: WS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management. You",
+          "c: an store data such as passwords, database strings, and license codes as parameter values. You can store values as plain text or encrypted data.",
+          "c: an then reference values by using the unique name that you specified when you created the parameter.",
+          "a: rameter Parameter Parameter Encrypt _",
+          "a: me value value",
+          "a: rameter Store P—"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "he)\n40. QUESTION n\nCategory: CDA - Security\nA serverless application is composed of several Lambda functions which reads data from RDS. These functions must share the same\nconnection string that should be encrypted to improve data security.\nWhich of the following is the MOST secure way to meet the above requirement?\n® Use AWS Lambda environment variables encrypted with KMS which will be shared by the Lambda functions.\nCreate a Secure String Parameter using the AWS Systems Manager Parameter Store.\nCreate an IAM Execution Role that has access to RDS and attach it to the Lambda functions.\nUse AWS Lambda environment variables encrypted with CloudHSM.\nIncorrect\nAWS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management. You\ncan store data such as passwords, database strings, and license codes as parameter values. You can store values as plain text or encrypted data.\nYou can then reference values by using the unique name that you specified when you created the parameter.\nParameter Parameter Parameter Encrypt _\nname value value\n| Parameter Store P—"
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "RDS",
+          "IAM",
+          "KMS",
+          "Systems Manager",
+          "Parameter Store",
+          "Config",
+          "Systems Manager",
+          "ECR",
+          "SAM"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Security",
+          "Deployment",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "serverless",
+          "security"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 213513.png",
+      "parsed": {
+        "question": "E\nCategory: CDA - Development with AWS Services\nA developer has deployed a Lambda function that runs in DEV, UAT, and PROD environments. The function uses different parameters that\nvaries based on the environment it is running in. The parameters are currently hardcoded in the function.\nWhich action should the developer do to reference the appropriate parameters without modifying the code every time the environment\nchanges?\n® Publish three versions of the Lambda function. Assign the aliases DEV, UAT, and PROD to each version.\nCreate a stage variable called Env and invoke the Lambda function by its alias name.\nCreate individual Lambda Layers for each environment\nUse environment variables to set the parameters per environment.\nIncorrect\nEnvironment variables for Lambda functions enable you to dynamically pass settings to your function code and libraries without making changes\nto your code. Environment variables are key-value pairs that you create and modify as part of your function configuration using either the AWS\nLambda Console, the AWS Lambda CLI, or the AWS Lambda SDK. AWS Lambda then makes these key-value pairs available to your Lambda\nfunction code using standard APIs supported by the language, like process.env for Node.js functions.\nYou can use environment variables to help libraries know what directory to install files in, where to store outputs, store connection and logging\nsettings, and more. By separating these settings from the application logic, you don’t need to update your function code when changing the\nfunction behavior based on different settings.\nHence, the correct answer is: Use environment variables to set the parameters per environment.",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services",
+          "A: developer has deployed a Lambda function that runs in DEV, UAT, and PROD environments. The function uses different parameters that",
+          "a: ries based on the environment it is running in. The parameters are currently hardcoded in the function.",
+          "c: h action should the developer do to reference the appropriate parameters without modifying the code every time the environment",
+          "c: hanges?",
+          "b: lish three versions of the Lambda function. Assign the aliases DEV, UAT, and PROD to each version.",
+          "C: reate a stage variable called Env and invoke the Lambda function by its alias name.",
+          "C: reate individual Lambda Layers for each environment",
+          "a: riables to set the parameters per environment.",
+          "c: orrect",
+          "a: riables for Lambda functions enable you to dynamically pass settings to your function code and libraries without making changes",
+          "c: ode. Environment variables are key-value pairs that you create and modify as part of your function configuration using either the AWS",
+          "a: mbda Console, the AWS Lambda CLI, or the AWS Lambda SDK. AWS Lambda then makes these key-value pairs available to your Lambda",
+          "c: tion code using standard APIs supported by the language, like process.env for Node.js functions.",
+          "c: an use environment variables to help libraries know what directory to install files in, where to store outputs, store connection and logging",
+          "a: nd more. By separating these settings from the application logic, you don’t need to update your function code when changing the",
+          "c: tion behavior based on different settings.",
+          "c: e, the correct answer is: Use environment variables to set the parameters per environment."
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "42. QUESTION E\nCategory: CDA - Development with AWS Services\nA developer has deployed a Lambda function that runs in DEV, UAT, and PROD environments. The function uses different parameters that\nvaries based on the environment it is running in. The parameters are currently hardcoded in the function.\nWhich action should the developer do to reference the appropriate parameters without modifying the code every time the environment\nchanges?\n® Publish three versions of the Lambda function. Assign the aliases DEV, UAT, and PROD to each version.\nCreate a stage variable called Env and invoke the Lambda function by its alias name.\nCreate individual Lambda Layers for each environment\nUse environment variables to set the parameters per environment.\nIncorrect\nEnvironment variables for Lambda functions enable you to dynamically pass settings to your function code and libraries without making changes\nto your code. Environment variables are key-value pairs that you create and modify as part of your function configuration using either the AWS\nLambda Console, the AWS Lambda CLI, or the AWS Lambda SDK. AWS Lambda then makes these key-value pairs available to your Lambda\nfunction code using standard APIs supported by the language, like process.env for Node.js functions.\nYou can use environment variables to help libraries know what directory to install files in, where to store outputs, store connection and logging\nsettings, and more. By separating these settings from the application logic, you don’t need to update your function code when changing the\nfunction behavior based on different settings.\nHence, the correct answer is: Use environment variables to set the parameters per environment."
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "Config"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "logging"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 213603.png",
+      "parsed": {
+        "question": "Category: CDA - Troubleshooting and Optimization .\nA reporting application is hosted in AWS Elastic Beanstalk and uses Amazon DynamoDB as its database. If a user requests data, the application ks\nscans the entire table and returns the requested data. The table is expected to grow due to the surge of new users and the increase in\nrequests for reports in the coming weeks.\nWhich of the following should be done as a preparation to improve the application's performance with minimal cost? (Select TWO.)\nIncrease the Write Compute Unit (WCU) of the table\nReduce page size\nUse DynamoDB Accelerator (DAX)\nUse Query operations instead\nSet the scanIndexForward parameter to control the order of query results.\nIncorrect\nIn general, Scan operations are less efficient than other operations in DynamoDB. A Scan operation always scans the entire table or\nsecondary index. It then filters out values to provide the result you want, essentially adding the extra step of removing data from the result set.\nProvisioned Throughput interval as measured by DynamoDB\n—_— Timeline\n[o] Request (size indicates larger/smaller data size)\nzzz4 DynamoDB throttles the request\n(HTTP 400: “ProvisionedThroughputExceededException”)",
+        "options": [
+          "C: ategory: CDA - Troubleshooting and Optimization .",
+          "A: reporting application is hosted in AWS Elastic Beanstalk and uses Amazon DynamoDB as its database. If a user requests data, the application ks",
+          "c: ans the entire table and returns the requested data. The table is expected to grow due to the surge of new users and the increase in",
+          "c: oming weeks.",
+          "c: h of the following should be done as a preparation to improve the application's performance with minimal cost? (Select TWO.)",
+          "c: rease the Write Compute Unit (WCU) of the table",
+          "d: uce page size",
+          "D: ynamoDB Accelerator (DAX)",
+          "a: tions instead",
+          "c: anIndexForward parameter to control the order of query results.",
+          "c: orrect",
+          "a: l, Scan operations are less efficient than other operations in DynamoDB. A Scan operation always scans the entire table or",
+          "c: ondary index. It then filters out values to provide the result you want, essentially adding the extra step of removing data from the result set.",
+          "d: Throughput interval as measured by DynamoDB",
+          "d: icates larger/smaller data size)",
+          "D: ynamoDB throttles the request",
+          "d: ThroughputExceededException”)"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "43. QUESTION\nCategory: CDA - Troubleshooting and Optimization .\nA reporting application is hosted in AWS Elastic Beanstalk and uses Amazon DynamoDB as its database. If a user requests data, the application ks\nscans the entire table and returns the requested data. The table is expected to grow due to the surge of new users and the increase in\nrequests for reports in the coming weeks.\nWhich of the following should be done as a preparation to improve the application's performance with minimal cost? (Select TWO.)\nIncrease the Write Compute Unit (WCU) of the table\nReduce page size\nUse DynamoDB Accelerator (DAX)\nUse Query operations instead\nSet the scanIndexForward parameter to control the order of query results.\nIncorrect\nIn general, Scan operations are less efficient than other operations in DynamoDB. A Scan operation always scans the entire table or\nsecondary index. It then filters out values to provide the result you want, essentially adding the extra step of removing data from the result set.\nProvisioned Throughput interval as measured by DynamoDB\n—_— Timeline\n[o] Request (size indicates larger/smaller data size)\nzzz4 DynamoDB throttles the request\n(HTTP 400: “ProvisionedThroughputExceededException”)"
+      },
+      "tags": {
+        "services": [
+          "Elastic Beanstalk",
+          "EKS",
+          "DynamoDB"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Deployment",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "performance"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 213631.png",
+      "parsed": {
+        "question": "Category: CDA - Development with AWS Services E\nYou are developing a Lambda function which processes event notifications from Amazon S3. It is expected that the function will have:\no 50 requests per second\no 100 seconds to complete each request\nWhat should you do to prevent any issues when the function has been deployed and becomes operational?\nIncrease the concurrency limit of the function.\nNo additional action needed since Lambda will automatically scale based on the incoming requests.\n® Implement exponential backoff in your application.\nRequest for AWS to increase the limit of your concurrent executions.\nIncorrect\nConcurrent executions refers to the number of executions of your function code that are happening at any given time. You can estimate the\nconcurrent execution count, but the concurrent execution count will differ depending on whether or not your Lambda function is processing\nevents from a poll-based event source.\nConcurrency\nUnreserved account concurrency 825\nlice 1inrecerved account concurrency",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services E",
+          "a: re developing a Lambda function which processes event notifications from Amazon S3. It is expected that the function will have:",
+          "c: ond",
+          "c: onds to complete each request",
+          "a: t should you do to prevent any issues when the function has been deployed and becomes operational?",
+          "c: rease the concurrency limit of the function.",
+          "a: dditional action needed since Lambda will automatically scale based on the incoming requests.",
+          "a: l backoff in your application.",
+          "A: WS to increase the limit of your concurrent executions.",
+          "c: orrect",
+          "C: oncurrent executions refers to the number of executions of your function code that are happening at any given time. You can estimate the",
+          "c: oncurrent execution count, but the concurrent execution count will differ depending on whether or not your Lambda function is processing",
+          "a: poll-based event source.",
+          "C: oncurrency",
+          "d: account concurrency 825",
+          "c: e 1inrecerved account concurrency"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "44. QUESTION\nCategory: CDA - Development with AWS Services E\nYou are developing a Lambda function which processes event notifications from Amazon S3. It is expected that the function will have:\no 50 requests per second\no 100 seconds to complete each request\nWhat should you do to prevent any issues when the function has been deployed and becomes operational?\nIncrease the concurrency limit of the function.\nNo additional action needed since Lambda will automatically scale based on the incoming requests.\n® Implement exponential backoff in your application.\nRequest for AWS to increase the limit of your concurrent executions.\nIncorrect\nConcurrent executions refers to the number of executions of your function code that are happening at any given time. You can estimate the\nconcurrent execution count, but the concurrent execution count will differ depending on whether or not your Lambda function is processing\nevents from a poll-based event source.\nConcurrency\nUnreserved account concurrency 825\nlice 1inrecerved account concurrency"
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "S3"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": []
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 213715.png",
+      "parsed": {
+        "question": "[\nCategory: CDA - Development with AWS Services\nA developer uses AWS SAM templates to deploy a serverless application. He needs to embed the application from the AWS Serverless\nApplication Repository or from an S3 bucket as a nested application.\nWhich of the following resource type is the most SUITABLE one that the developer should use?\nAWS: :Serverless: Application\nAWS: :Serverless: Api\nAWS: :Serverless::LayerVersion\nIncorrect\nA serverless application can include one or more nested applications. You can deploy a nested application as a stand-alone artifact or as a\ncomponent of a larger application.\nAs serverless architectures grow, common patterns emerge in which the same components are defined in multiple application templates. You can\nnow separate out common patterns as dedicated applications, and then nest them as part of new or existing application templates. With nested\napplications, you can stay more focused on the business logic that’s unique to your application.\nTo define a nested application in your serverless application, use the AWS::Serverless::Application resource type.\nAWS: :Serverless: : Function is incorrect because this resource type describes configuration information for creating a Lambda function. You\ncan describe any event source that you want to attach to the Lambda function—such as Amazon S3, Amazon DynamoDB Streams, and Amazon",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services",
+          "A: developer uses AWS SAM templates to deploy a serverless application. He needs to embed the application from the AWS Serverless",
+          "A: pplication Repository or from an S3 bucket as a nested application.",
+          "c: h of the following resource type is the most SUITABLE one that the developer should use?",
+          "A: WS: :Serverless: Application",
+          "A: WS: :Serverless: Api",
+          "A: WS: :Serverless::LayerVersion",
+          "c: orrect",
+          "A: serverless application can include one or more nested applications. You can deploy a nested application as a stand-alone artifact or as a",
+          "c: omponent of a larger application.",
+          "A: s serverless architectures grow, common patterns emerge in which the same components are defined in multiple application templates. You can",
+          "a: rate out common patterns as dedicated applications, and then nest them as part of new or existing application templates. With nested",
+          "a: pplications, you can stay more focused on the business logic that’s unique to your application.",
+          "d: efine a nested application in your serverless application, use the AWS::Serverless::Application resource type.",
+          "A: WS: :Serverless: : Function is incorrect because this resource type describes configuration information for creating a Lambda function. You",
+          "c: an describe any event source that you want to attach to the Lambda function—such as Amazon S3, Amazon DynamoDB Streams, and Amazon"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "46. QUESTION [\nCategory: CDA - Development with AWS Services\nA developer uses AWS SAM templates to deploy a serverless application. He needs to embed the application from the AWS Serverless\nApplication Repository or from an S3 bucket as a nested application.\nWhich of the following resource type is the most SUITABLE one that the developer should use?\nAWS: :Serverless: Application\nAWS: :Serverless: Api\nAWS: :Serverless::LayerVersion\nIncorrect\nA serverless application can include one or more nested applications. You can deploy a nested application as a stand-alone artifact or as a\ncomponent of a larger application.\nAs serverless architectures grow, common patterns emerge in which the same components are defined in multiple application templates. You can\nnow separate out common patterns as dedicated applications, and then nest them as part of new or existing application templates. With nested\napplications, you can stay more focused on the business logic that’s unique to your application.\nTo define a nested application in your serverless application, use the AWS::Serverless::Application resource type.\nAWS: :Serverless: : Function is incorrect because this resource type describes configuration information for creating a Lambda function. You\ncan describe any event source that you want to attach to the Lambda function—such as Amazon S3, Amazon DynamoDB Streams, and Amazon"
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "S3",
+          "DynamoDB",
+          "Config",
+          "SAM"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Deployment",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "serverless"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 213845.png",
+      "parsed": {
+        "question": "Category: CDA - Troubleshooting and Optimization\nA website is hosted in an Auto Scaling group of EC2 instances behind an Application Load Balancer. It also uses CloudFront with a default E\ndomain name to distribute its static assets and dynamic contents. However, the website has a poor search ranking as it doesn’t use a secure\nHTTPS/SSL on its site.\nWhich are the possible solutions that the developer can implement in order to set up HTTPS communication between the viewers and\nCloudFront? (Select TWO.)\nUse a self-signed certificate in the ALB.\nSet the Viewer Protocol Policy touse HTTPS Only .\nSet the Viewer Protocol Policy touse Redirect HTTP to HTTPS .\nUse a self-signed SSL/TLS certificate in the ALB which is stored in a private S3 bucket.\nConfigure the ALB to use its default SSL/TLS certificate.\nIncorrect\nYou can configure one or more cache behaviors in your CloudFront distribution to require HTTPS for communication between viewers and\nCloudFront. You also can configure one or more cache behaviors to allow both HTTP and HTTPS so that CloudFront requires HTTPS for some\nobjects but not for others.\nIf you're using the domain name that CloudFront assigned to your distribution, such as dtutOrialsdOjo.cloudfront.net, you can change the Viewer\nProtocol Policy setting for one or more cache behaviors to require HTTPS communication by setting it as either Redirect HTTP to HTTPS ,\nor HTTPS Only .",
+        "options": [
+          "C: ategory: CDA - Troubleshooting and Optimization",
+          "A: website is hosted in an Auto Scaling group of EC2 instances behind an Application Load Balancer. It also uses CloudFront with a default E",
+          "d: omain name to distribute its static assets and dynamic contents. However, the website has a poor search ranking as it doesn’t use a secure",
+          "c: h are the possible solutions that the developer can implement in order to set up HTTPS communication between the viewers and",
+          "C: loudFront? (Select TWO.)",
+          "a: self-signed certificate in the ALB.",
+          "c: ol Policy touse HTTPS Only .",
+          "c: ol Policy touse Redirect HTTP to HTTPS .",
+          "a: self-signed SSL/TLS certificate in the ALB which is stored in a private S3 bucket.",
+          "C: onfigure the ALB to use its default SSL/TLS certificate.",
+          "c: orrect",
+          "c: an configure one or more cache behaviors in your CloudFront distribution to require HTTPS for communication between viewers and",
+          "C: loudFront. You also can configure one or more cache behaviors to allow both HTTP and HTTPS so that CloudFront requires HTTPS for some",
+          "b: jects but not for others.",
+          "d: omain name that CloudFront assigned to your distribution, such as dtutOrialsdOjo.cloudfront.net, you can change the Viewer",
+          "c: ol Policy setting for one or more cache behaviors to require HTTPS communication by setting it as either Redirect HTTP to HTTPS ,"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "47. QUESTION\nCategory: CDA - Troubleshooting and Optimization\nA website is hosted in an Auto Scaling group of EC2 instances behind an Application Load Balancer. It also uses CloudFront with a default E\ndomain name to distribute its static assets and dynamic contents. However, the website has a poor search ranking as it doesn’t use a secure\nHTTPS/SSL on its site.\nWhich are the possible solutions that the developer can implement in order to set up HTTPS communication between the viewers and\nCloudFront? (Select TWO.)\nUse a self-signed certificate in the ALB.\nSet the Viewer Protocol Policy touse HTTPS Only .\nSet the Viewer Protocol Policy touse Redirect HTTP to HTTPS .\nUse a self-signed SSL/TLS certificate in the ALB which is stored in a private S3 bucket.\nConfigure the ALB to use its default SSL/TLS certificate.\nIncorrect\nYou can configure one or more cache behaviors in your CloudFront distribution to require HTTPS for communication between viewers and\nCloudFront. You also can configure one or more cache behaviors to allow both HTTP and HTTPS so that CloudFront requires HTTPS for some\nobjects but not for others.\nIf you're using the domain name that CloudFront assigned to your distribution, such as dtutOrialsdOjo.cloudfront.net, you can change the Viewer\nProtocol Policy setting for one or more cache behaviors to require HTTPS communication by setting it as either Redirect HTTP to HTTPS ,\nor HTTPS Only ."
+      },
+      "tags": {
+        "services": [
+          "EC2",
+          "S3",
+          "EBS",
+          "CloudFront",
+          "ALB",
+          "Config"
+        ],
+        "domains": [
+          "Development with AWS Services"
+        ],
+        "keywords": [
+          "scaling",
+          "policy"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 214320.png",
+      "parsed": {
+        "question": "Category: CDA - Troubleshooting and Optimization\nAn application, which already uses X-Ray, generates thousands of trace data every hour. The developer wants to use a filter expression that\nwill limit the results based on custom attributes or keys that he specifies.\nHow should the developer refactor the application in order to filter the results in the X-Ray console?\nAdd the custom attributes as annotations in your segment document.\nCreate a new sampling rule based on the custom attributes.\nAdd the custom attributes as metadata in your segment document.\n® Include the custom attributes as new segment fields in the segment document.\nIncorrect\nEven with sampling, a complex application generates a lot of data. The AWS X-Ray console provides an easy-to-navigate view of the service\ngraph. It shows health and performance information that helps you identify issues and opportunities for optimization in your application. For\nadvanced tracing, you can drill down to traces for individual requests or use filter expressions to find traces related to specific paths or users.\nLa somes + |\nTrace overview",
+        "options": [
+          "C: ategory: CDA - Troubleshooting and Optimization",
+          "A: n application, which already uses X-Ray, generates thousands of trace data every hour. The developer wants to use a filter expression that",
+          "b: ased on custom attributes or keys that he specifies.",
+          "d: the developer refactor the application in order to filter the results in the X-Ray console?",
+          "A: dd the custom attributes as annotations in your segment document.",
+          "C: reate a new sampling rule based on the custom attributes.",
+          "A: dd the custom attributes as metadata in your segment document.",
+          "c: lude the custom attributes as new segment fields in the segment document.",
+          "c: orrect",
+          "a: mpling, a complex application generates a lot of data. The AWS X-Ray console provides an easy-to-navigate view of the service",
+          "a: ph. It shows health and performance information that helps you identify issues and opportunities for optimization in your application. For",
+          "a: dvanced tracing, you can drill down to traces for individual requests or use filter expressions to find traces related to specific paths or users.",
+          "a: somes + |",
+          "a: ce overview"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "EO\n48. QUESTION\nCategory: CDA - Troubleshooting and Optimization\nAn application, which already uses X-Ray, generates thousands of trace data every hour. The developer wants to use a filter expression that\nwill limit the results based on custom attributes or keys that he specifies.\nHow should the developer refactor the application in order to filter the results in the X-Ray console?\nAdd the custom attributes as annotations in your segment document.\nCreate a new sampling rule based on the custom attributes.\nAdd the custom attributes as metadata in your segment document.\n® Include the custom attributes as new segment fields in the segment document.\nIncorrect\nEven with sampling, a complex application generates a lot of data. The AWS X-Ray console provides an easy-to-navigate view of the service\ngraph. It shows health and performance information that helps you identify issues and opportunities for optimization in your application. For\nadvanced tracing, you can drill down to traces for individual requests or use filter expressions to find traces related to specific paths or users.\nLa somes + |\nTrace overview"
+      },
+      "tags": {
+        "services": [
+          "X-Ray",
+          "SAM"
+        ],
+        "domains": [
+          "Security",
+          "Deployment",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "performance"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 214629.png",
+      "parsed": {
+        "question": "Category: CDA - Security\n®\nA programmer is developing a Node.js application that will be run on a Linux server in their on-premises data center. The application will Ei\naccess various AWS services such as S3, DynamoDB, and ElastiCache using the AWS SDK.\nWhich of the following is the MOST suitable way to provide access for the developer to accomplish the specified task?\nGo to the AWS Console and create a new IAM User with the appropriate permissions. In the application server, create the\ncredentials file at ~/.aws/credentials with the username and the hashed password of the IAM User.\nCreate an IAM role with the appropriate permissions to access the required AWS services and assign the role to the on-\n® premises Linux server. Whenever the application needs to access any AWS services, request for temporary security\ncredentials from STS using the AssumerRole APL\nCreate an IAM role with the appropriate permissions to access the required AWS services. Assign the role to the on-premises\nLinux server.\nGo to the AWS Console and create a new IAM user with programmatic access. In the application server, create the credentials\nfile at ~/.aws/credentials with the access keys of the IAM user.\nIncorrect\nIf you have resources that are running inside AWS that need programmatic access to various AWS services, then the best practice is always to use\nIAM roles. However, applications running outside of an AWS environment will need access keys for programmatic access to AWS resources. For\nexample, monitoring tools running on-premises and third-party automation tools will need access keys.\nAccess keys are long-term credentials for an IAM user or the AWS account root user. You can use access keys to sign programmatic requests to",
+        "options": [
+          "C: ategory: CDA - Security",
+          "A: programmer is developing a Node.js application that will be run on a Linux server in their on-premises data center. The application will Ei",
+          "a: ccess various AWS services such as S3, DynamoDB, and ElastiCache using the AWS SDK.",
+          "c: h of the following is the MOST suitable way to provide access for the developer to accomplish the specified task?",
+          "A: WS Console and create a new IAM User with the appropriate permissions. In the application server, create the",
+          "c: redentials file at ~/.aws/credentials with the username and the hashed password of the IAM User.",
+          "C: reate an IAM role with the appropriate permissions to access the required AWS services and assign the role to the on-",
+          "a: pplication needs to access any AWS services, request for temporary security",
+          "c: redentials from STS using the AssumerRole APL",
+          "C: reate an IAM role with the appropriate permissions to access the required AWS services. Assign the role to the on-premises",
+          "A: WS Console and create a new IAM user with programmatic access. In the application server, create the credentials",
+          "a: t ~/.aws/credentials with the access keys of the IAM user.",
+          "c: orrect",
+          "a: ve resources that are running inside AWS that need programmatic access to various AWS services, then the best practice is always to use",
+          "A: M roles. However, applications running outside of an AWS environment will need access keys for programmatic access to AWS resources. For",
+          "a: mple, monitoring tools running on-premises and third-party automation tools will need access keys.",
+          "A: ccess keys are long-term credentials for an IAM user or the AWS account root user. You can use access keys to sign programmatic requests to"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "49. QUESTION\nCategory: CDA - Security\n®\nA programmer is developing a Node.js application that will be run on a Linux server in their on-premises data center. The application will Ei\naccess various AWS services such as S3, DynamoDB, and ElastiCache using the AWS SDK.\nWhich of the following is the MOST suitable way to provide access for the developer to accomplish the specified task?\nGo to the AWS Console and create a new IAM User with the appropriate permissions. In the application server, create the\ncredentials file at ~/.aws/credentials with the username and the hashed password of the IAM User.\nCreate an IAM role with the appropriate permissions to access the required AWS services and assign the role to the on-\n® premises Linux server. Whenever the application needs to access any AWS services, request for temporary security\ncredentials from STS using the AssumerRole APL\nCreate an IAM role with the appropriate permissions to access the required AWS services. Assign the role to the on-premises\nLinux server.\nGo to the AWS Console and create a new IAM user with programmatic access. In the application server, create the credentials\nfile at ~/.aws/credentials with the access keys of the IAM user.\nIncorrect\nIf you have resources that are running inside AWS that need programmatic access to various AWS services, then the best practice is always to use\nIAM roles. However, applications running outside of an AWS environment will need access keys for programmatic access to AWS resources. For\nexample, monitoring tools running on-premises and third-party automation tools will need access keys.\nAccess keys are long-term credentials for an IAM user or the AWS account root user. You can use access keys to sign programmatic requests to"
+      },
+      "tags": {
+        "services": [
+          "S3",
+          "DynamoDB",
+          "ElastiCache",
+          "IAM"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Security",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "security",
+          "monitoring",
+          "IAM role"
+        ]
+      },
+      "isCorrect": true
+    },
+    {
+      "file": "Screenshot 2026-01-15 214703.png",
+      "parsed": {
+        "question": "Category: CDA - Development with AWS Services\nA developer is working on a Lambda function which has an event source mapping to process requests from API Gateway. The function will\nconsistently have 10 requests per second and it will take a maximum of 50 seconds to complete each request.\nWhat should the developer do to prevent the function from throttling?\nImplement traffic shifting in Lambda using Aliases.\n® Submita service Limit Increase request to AWS to raise your concurrent executions limit.\nDo nothing since Lambda will automatically scale to handle the load.\nUse Dead Letter Queues (DLQ) to reprocess failed requests.\nIncorrect\nIf you create a Lambda function to process events from event sources that aren't poll-based (for example, Lambda can process every event from\nother sources, like Amazon S3 or API Gateway), each published event is a unit of work, in parallel, up to your account limits. Therefore, the number\nof invocations these event sources make influences the concurrency.\nYou can use this formula to estimate the capacity used by your function:\nconcurrent executions = (invocations per second) x (average execution duration in seconds)\nFor example, consider a Lambda function that processes Amazon S3 events. Suppose that the Lambda function takes on average three seconds\nand Amazon S3 publishes 10 events per second. Then, you will have 30 concurrent executions of your Lambda function. See the calculation shown",
+        "options": [
+          "C: ategory: CDA - Development with AWS Services",
+          "A: developer is working on a Lambda function which has an event source mapping to process requests from API Gateway. The function will",
+          "c: onsistently have 10 requests per second and it will take a maximum of 50 seconds to complete each request.",
+          "a: t should the developer do to prevent the function from throttling?",
+          "a: ffic shifting in Lambda using Aliases.",
+          "b: mita service Limit Increase request to AWS to raise your concurrent executions limit.",
+          "D: o nothing since Lambda will automatically scale to handle the load.",
+          "D: ead Letter Queues (DLQ) to reprocess failed requests.",
+          "c: orrect",
+          "c: reate a Lambda function to process events from event sources that aren't poll-based (for example, Lambda can process every event from",
+          "c: es, like Amazon S3 or API Gateway), each published event is a unit of work, in parallel, up to your account limits. Therefore, the number",
+          "c: ations these event sources make influences the concurrency.",
+          "c: an use this formula to estimate the capacity used by your function:",
+          "c: oncurrent executions = (invocations per second) x (average execution duration in seconds)",
+          "a: mple, consider a Lambda function that processes Amazon S3 events. Suppose that the Lambda function takes on average three seconds",
+          "a: nd Amazon S3 publishes 10 events per second. Then, you will have 30 concurrent executions of your Lambda function. See the calculation shown"
+        ],
+        "yourAnswer": "",
+        "correctAnswer": "",
+        "explanation": "",
+        "rawText": "50. QUESTION\nCategory: CDA - Development with AWS Services\nA developer is working on a Lambda function which has an event source mapping to process requests from API Gateway. The function will\nconsistently have 10 requests per second and it will take a maximum of 50 seconds to complete each request.\nWhat should the developer do to prevent the function from throttling?\nImplement traffic shifting in Lambda using Aliases.\n® Submita service Limit Increase request to AWS to raise your concurrent executions limit.\nDo nothing since Lambda will automatically scale to handle the load.\nUse Dead Letter Queues (DLQ) to reprocess failed requests.\nIncorrect\nIf you create a Lambda function to process events from event sources that aren't poll-based (for example, Lambda can process every event from\nother sources, like Amazon S3 or API Gateway), each published event is a unit of work, in parallel, up to your account limits. Therefore, the number\nof invocations these event sources make influences the concurrency.\nYou can use this formula to estimate the capacity used by your function:\nconcurrent executions = (invocations per second) x (average execution duration in seconds)\nFor example, consider a Lambda function that processes Amazon S3 events. Suppose that the Lambda function takes on average three seconds\nand Amazon S3 publishes 10 events per second. Then, you will have 30 concurrent executions of your Lambda function. See the calculation shown"
+      },
+      "tags": {
+        "services": [
+          "Lambda",
+          "S3",
+          "API Gateway"
+        ],
+        "domains": [
+          "Development with AWS Services",
+          "Troubleshooting and Optimization"
+        ],
+        "keywords": [
+          "throttling",
+          "queue"
+        ]
+      },
+      "isCorrect": true
+    }
+  ],
+  "summary": {
+    "totalQuestions": 33,
+    "correctCount": 33,
+    "incorrectCount": 0,
+    "accuracy": 100,
+    "serviceBreakdown": {
+      "EC2": {
+        "total": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "S3": {
+        "total": 13,
+        "correct": 13,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "VPC": {
+        "total": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Inspector": {
+        "total": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "X-Ray": {
+        "total": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "CloudWatch": {
+        "total": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "CloudTrail": {
+        "total": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Lambda": {
+        "total": 17,
+        "correct": 17,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "API Gateway": {
+        "total": 7,
+        "correct": 7,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "SAM": {
+        "total": 7,
+        "correct": 7,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "DynamoDB": {
+        "total": 8,
+        "correct": 8,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "IAM": {
+        "total": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "CloudFormation": {
+        "total": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "KMS": {
+        "total": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "SQS": {
+        "total": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "EBS": {
+        "total": 4,
+        "correct": 4,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Cognito": {
+        "total": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Step Functions": {
+        "total": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Config": {
+        "total": 15,
+        "correct": 15,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "ECS": {
+        "total": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "ECR": {
+        "total": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "CloudFront": {
+        "total": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "ALB": {
+        "total": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "WAF": {
+        "total": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "ElastiCache": {
+        "total": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "RDS": {
+        "total": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Aurora": {
+        "total": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Route 53": {
+        "total": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "CodeDeploy": {
+        "total": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Systems Manager": {
+        "total": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Parameter Store": {
+        "total": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Elastic Beanstalk": {
+        "total": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "EKS": {
+        "total": 1,
+        "correct": 1,
+        "incorrect": 0,
+        "accuracy": 100
+      }
+    },
+    "domainBreakdown": {
+      "Development with AWS Services": {
+        "total": 27,
+        "correct": 27,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Security": {
+        "total": 11,
+        "correct": 11,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Troubleshooting and Optimization": {
+        "total": 25,
+        "correct": 25,
+        "incorrect": 0,
+        "accuracy": 100
+      },
+      "Deployment": {
+        "total": 9,
+        "correct": 9,
+        "incorrect": 0,
+        "accuracy": 100
+      }
+    },
+    "weakAreas": [],
+    "strongAreas": [
+      {
+        "service": "EC2",
+        "accuracy": 100,
+        "questionsReviewed": 4
+      },
+      {
+        "service": "S3",
+        "accuracy": 100,
+        "questionsReviewed": 13
+      },
+      {
+        "service": "VPC",
+        "accuracy": 100,
+        "questionsReviewed": 3
+      },
+      {
+        "service": "X-Ray",
+        "accuracy": 100,
+        "questionsReviewed": 2
+      },
+      {
+        "service": "CloudWatch",
+        "accuracy": 100,
+        "questionsReviewed": 2
+      },
+      {
+        "service": "Lambda",
+        "accuracy": 100,
+        "questionsReviewed": 17
+      },
+      {
+        "service": "API Gateway",
+        "accuracy": 100,
+        "questionsReviewed": 7
+      },
+      {
+        "service": "SAM",
+        "accuracy": 100,
+        "questionsReviewed": 7
+      },
+      {
+        "service": "DynamoDB",
+        "accuracy": 100,
+        "questionsReviewed": 8
+      },
+      {
+        "service": "IAM",
+        "accuracy": 100,
+        "questionsReviewed": 5
+      },
+      {
+        "service": "CloudFormation",
+        "accuracy": 100,
+        "questionsReviewed": 2
+      },
+      {
+        "service": "KMS",
+        "accuracy": 100,
+        "questionsReviewed": 3
+      },
+      {
+        "service": "SQS",
+        "accuracy": 100,
+        "questionsReviewed": 4
+      },
+      {
+        "service": "EBS",
+        "accuracy": 100,
+        "questionsReviewed": 4
+      },
+      {
+        "service": "Cognito",
+        "accuracy": 100,
+        "questionsReviewed": 2
+      },
+      {
+        "service": "Config",
+        "accuracy": 100,
+        "questionsReviewed": 15
+      },
+      {
+        "service": "ECS",
+        "accuracy": 100,
+        "questionsReviewed": 3
+      },
+      {
+        "service": "ECR",
+        "accuracy": 100,
+        "questionsReviewed": 3
+      },
+      {
+        "service": "CloudFront",
+        "accuracy": 100,
+        "questionsReviewed": 5
+      },
+      {
+        "service": "ALB",
+        "accuracy": 100,
+        "questionsReviewed": 3
+      },
+      {
+        "service": "WAF",
+        "accuracy": 100,
+        "questionsReviewed": 2
+      },
+      {
+        "service": "ElastiCache",
+        "accuracy": 100,
+        "questionsReviewed": 2
+      },
+      {
+        "service": "RDS",
+        "accuracy": 100,
+        "questionsReviewed": 2
+      },
+      {
+        "service": "Systems Manager",
+        "accuracy": 100,
+        "questionsReviewed": 2
+      }
+    ],
+    "topKeywords": [
+      {
+        "keyword": "security",
+        "count": 8
+      },
+      {
+        "keyword": "serverless",
+        "count": 7
+      },
+      {
+        "keyword": "authorization",
+        "count": 5
+      },
+      {
+        "keyword": "policy",
+        "count": 5
+      },
+      {
+        "keyword": "queue",
+        "count": 5
+      },
+      {
+        "keyword": "scaling",
+        "count": 4
+      },
+      {
+        "keyword": "VPC",
+        "count": 3
+      },
+      {
+        "keyword": "deployment",
+        "count": 3
+      },
+      {
+        "keyword": "monitoring",
+        "count": 2
+      },
+      {
+        "keyword": "throttling",
+        "count": 2
+      },
+      {
+        "keyword": "encryption",
+        "count": 2
+      },
+      {
+        "keyword": "container",
+        "count": 2
+      },
+      {
+        "keyword": "caching",
+        "count": 2
+      },
+      {
+        "keyword": "IAM role",
+        "count": 2
+      },
+      {
+        "keyword": "performance",
+        "count": 2
+      }
+    ],
+    "recommendations": [
+      "🎯 Excellent performance! You're exam-ready. Focus on scenario-based practice"
+    ]
+  },
+  "heatmap": [
+    {
+      "service": "EC2",
+      "accuracy": 100,
+      "total": 4,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "S3",
+      "accuracy": 100,
+      "total": 13,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "VPC",
+      "accuracy": 100,
+      "total": 3,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "Inspector",
+      "accuracy": 100,
+      "total": 1,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "X-Ray",
+      "accuracy": 100,
+      "total": 2,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "CloudWatch",
+      "accuracy": 100,
+      "total": 2,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "CloudTrail",
+      "accuracy": 100,
+      "total": 1,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "Lambda",
+      "accuracy": 100,
+      "total": 17,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "API Gateway",
+      "accuracy": 100,
+      "total": 7,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "SAM",
+      "accuracy": 100,
+      "total": 7,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "DynamoDB",
+      "accuracy": 100,
+      "total": 8,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "IAM",
+      "accuracy": 100,
+      "total": 5,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "CloudFormation",
+      "accuracy": 100,
+      "total": 2,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "KMS",
+      "accuracy": 100,
+      "total": 3,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "SQS",
+      "accuracy": 100,
+      "total": 4,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "EBS",
+      "accuracy": 100,
+      "total": 4,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "Cognito",
+      "accuracy": 100,
+      "total": 2,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "Step Functions",
+      "accuracy": 100,
+      "total": 1,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "Config",
+      "accuracy": 100,
+      "total": 15,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "ECS",
+      "accuracy": 100,
+      "total": 3,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "ECR",
+      "accuracy": 100,
+      "total": 3,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "CloudFront",
+      "accuracy": 100,
+      "total": 5,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "ALB",
+      "accuracy": 100,
+      "total": 3,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "WAF",
+      "accuracy": 100,
+      "total": 2,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "ElastiCache",
+      "accuracy": 100,
+      "total": 2,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "RDS",
+      "accuracy": 100,
+      "total": 2,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "Aurora",
+      "accuracy": 100,
+      "total": 1,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "Route 53",
+      "accuracy": 100,
+      "total": 1,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "CodeDeploy",
+      "accuracy": 100,
+      "total": 1,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "Systems Manager",
+      "accuracy": 100,
+      "total": 2,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "Parameter Store",
+      "accuracy": 100,
+      "total": 1,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "Elastic Beanstalk",
+      "accuracy": 100,
+      "total": 1,
+      "color": "#22c55e",
+      "status": "Strong"
+    },
+    {
+      "service": "EKS",
+      "accuracy": 100,
+      "total": 1,
+      "color": "#22c55e",
+      "status": "Strong"
+    }
+  ],
+  "quickStats": {
+    "accuracy": "100.0%",
+    "correct": 33,
+    "incorrect": 0,
+    "totalServices": 33,
+    "weakAreaCount": 0
+  }
+}
