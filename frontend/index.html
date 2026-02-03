@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -131,8 +132,13 @@
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     .results {
@@ -184,7 +190,8 @@
       padding-bottom: 10px;
     }
 
-    .weak-areas, .strong-areas {
+    .weak-areas,
+    .strong-areas {
       display: grid;
       gap: 15px;
     }
@@ -397,8 +404,117 @@
       background: #667eea;
       color: white;
     }
+
+    .excel-results {
+      display: none;
+    }
+
+    .excel-results.active {
+      display: block;
+    }
+
+    .sheet-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 10px;
+    }
+
+    .sheet-tab {
+      padding: 10px 20px;
+      background: #f3f4f6;
+      border: none;
+      border-radius: 8px 8px 0 0;
+      cursor: pointer;
+      font-weight: 600;
+      color: #666;
+      transition: all 0.2s;
+    }
+
+    .sheet-tab:hover {
+      background: #e5e7eb;
+    }
+
+    .sheet-tab.active {
+      background: #667eea;
+      color: white;
+    }
+
+    .excel-table-container {
+      overflow-x: auto;
+      max-height: 600px;
+      overflow-y: auto;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .excel-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9em;
+    }
+
+    .excel-table th {
+      background: #667eea;
+      color: white;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .excel-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .excel-table tr:hover {
+      background: #f8f9ff;
+    }
+
+    .excel-table tr:nth-child(even) {
+      background: #fafafa;
+    }
+
+    .excel-table tr:nth-child(even):hover {
+      background: #f0f1ff;
+    }
+
+    .excel-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .excel-info-item {
+      background: #f8f9ff;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+    }
+
+    .excel-info-label {
+      font-size: 0.85em;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+    }
+
+    .excel-info-value {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: #333;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="header">
@@ -408,17 +524,23 @@
 
     <!-- Upload Section -->
     <div class="card upload-section">
-      <h2>Upload Your Exam Screenshots</h2>
-      <p style="color: #666; margin: 15px 0;">Upload a ZIP file containing screenshots of your practice exam questions</p>
-      
-      <div class="upload-area" id="uploadArea">
-        <div class="upload-icon">📦</div>
-        <h3>Drop your ZIP file here or click to browse</h3>
-        <p style="color: #999; margin-top: 10px;">Supports: .png, .jpg, .jpeg, .webp</p>
+      <h2>Upload Your Exam Data</h2>
+      <p style="color: #666; margin: 15px 0;">Choose to upload a ZIP of screenshots or an Excel file containing your
+        questions</p>
+
+      <div style="margin-top: 10px; margin-bottom: 20px;">
+        <button class="btn" id="modeZipBtn">📦 Zipped folders</button>
+        <button class="btn btn-secondary" id="modeExcelBtn">📊 Excel files</button>
       </div>
 
-      <input type="file" id="zipFile" accept=".zip" />
-      
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-icon" id="uploadIcon">📦</div>
+        <h3 id="uploadTitle">Drop your ZIP file here or click to browse</h3>
+        <p id="uploadHelp" style="color: #999; margin-top: 10px;">Supports: .zip of .png, .jpg, .jpeg, .webp</p>
+      </div>
+
+      <input type="file" id="fileInput" accept=".zip" />
+
       <button class="btn" id="uploadBtn" disabled>
         🚀 Process & Analyze
       </button>
@@ -469,7 +591,7 @@
         <div class="export-section">
           <h2 style="margin-bottom: 15px;">🤖 Export for ChatGPT Analysis</h2>
           <p style="color: #666; margin-bottom: 20px;">
-            Generate formatted text to paste into ChatGPT for deep concept analysis, 
+            Generate formatted text to paste into ChatGPT for deep concept analysis,
             trap recognition, and architecture reasoning
           </p>
           <button class="btn btn-secondary" id="exportBtn">
@@ -486,7 +608,21 @@
 
       <!-- Reset Button -->
       <div class="card" style="text-align: center;">
-        <button class="btn" id="resetBtn">🔄 Process Another ZIP</button>
+        <button class="btn" id="resetBtn">🔄 Process Another File</button>
+      </div>
+    </div>
+
+    <!-- Excel Results Section -->
+    <div class="excel-results" id="excelResultsSection">
+      <div class="card">
+        <h2 class="section-title">📊 Excel Data Extraction</h2>
+        <div class="excel-info" id="excelInfo"></div>
+        <div class="sheet-tabs" id="sheetTabs"></div>
+        <div class="excel-table-container" id="excelTableContainer"></div>
+        <div style="text-align: center; margin: 30px 0;">
+          <button class="btn btn-secondary" id="downloadExcelJsonBtn">💾 Download as JSON</button>
+          <button class="btn" id="resetExcelBtn" style="margin-left: 10px;">🔄 Process Another File</button>
+        </div>
       </div>
     </div>
   </div>
@@ -497,16 +633,51 @@
     console.log('🌐 Frontend origin:', window.location.origin);
     console.log('🔗 API URL:', API_URL);
     let currentResults = null;
+    let uploadMode = 'zip'; // 'zip' or 'excel'
 
     // Elements
     const uploadArea = document.getElementById('uploadArea');
-    const zipFileInput = document.getElementById('zipFile');
+    const uploadIcon = document.getElementById('uploadIcon');
+    const uploadTitle = document.getElementById('uploadTitle');
+    const uploadHelp = document.getElementById('uploadHelp');
+    const fileInput = document.getElementById('fileInput');
     const uploadBtn = document.getElementById('uploadBtn');
     const loadingSection = document.getElementById('loadingSection');
     const resultsSection = document.getElementById('resultsSection');
     const progressText = document.getElementById('progressText');
     const resetBtn = document.getElementById('resetBtn');
     const exportBtn = document.getElementById('exportBtn');
+    const modeZipBtn = document.getElementById('modeZipBtn');
+    const modeExcelBtn = document.getElementById('modeExcelBtn');
+    const excelResultsSection = document.getElementById('excelResultsSection');
+    const downloadExcelJsonBtn = document.getElementById('downloadExcelJsonBtn');
+    const resetExcelBtn = document.getElementById('resetExcelBtn');
+    let currentExcelData = null;
+
+    function setUploadMode(mode) {
+      uploadMode = mode;
+      if (mode === 'zip') {
+        modeZipBtn.classList.remove('btn-secondary');
+        modeExcelBtn.classList.add('btn-secondary');
+        uploadIcon.textContent = '📦';
+        uploadTitle.textContent = 'Drop your ZIP file here or click to browse';
+        uploadHelp.textContent = 'Supports: .zip of .png, .jpg, .jpeg, .webp';
+        fileInput.accept = '.zip';
+      } else {
+        modeZipBtn.classList.add('btn-secondary');
+        modeExcelBtn.classList.remove('btn-secondary');
+        uploadIcon.textContent = '📊';
+        uploadTitle.textContent = 'Drop your Excel file here or click to browse';
+        uploadHelp.textContent = 'Supports: .xlsx, .xls, .csv';
+        fileInput.accept = '.xlsx,.xls,.csv';
+      }
+      uploadBtn.disabled = true;
+      fileInput.value = '';
+    }
+
+    // Mode toggle handlers
+    modeZipBtn.addEventListener('click', () => setUploadMode('zip'));
+    modeExcelBtn.addEventListener('click', () => setUploadMode('excel'));
 
     // Test backend connection on page load with fallback
     async function testConnection() {
@@ -514,7 +685,7 @@
       console.log('Frontend Origin:', window.location.origin);
       console.log('Detected Hostname:', currentHost);
       console.log('Initial API_URL:', API_URL);
-      
+
       const urlsToTry = [
         API_URL, // Try current hostname first
         `http://localhost:4000`, // Fallback to localhost
@@ -528,7 +699,7 @@
         try {
           console.log(`\n[${i + 1}/${urlsToTry.length}] Attempting: ${url}`);
           const startTime = Date.now();
-          
+
           const response = await fetch(`${url}/api/health`, {
             method: 'GET',
             mode: 'cors',
@@ -537,12 +708,12 @@
               'Accept': 'application/json'
             }
           });
-          
+
           const duration = Date.now() - startTime;
           console.log(`   Response received in ${duration}ms`);
           console.log(`   Status: ${response.status} ${response.statusText}`);
           console.log(`   Headers:`, Object.fromEntries(response.headers.entries()));
-          
+
           if (response.ok) {
             const data = await response.json();
             console.log('✅ SUCCESS! Backend connected:', data);
@@ -568,7 +739,7 @@
           };
           console.error(`   ❌ FAILED:`, errorDetails);
           console.error(`   Error type: ${error.constructor.name}`);
-          
+
           // Check for specific error types
           if (error.message.includes('Failed to fetch')) {
             console.error('   💡 This usually means:');
@@ -583,7 +754,7 @@
           if (error.message.includes('CORS')) {
             console.error('   💡 CORS error - check backend CORS configuration');
           }
-          
+
           continue; // Try next URL
         }
       }
@@ -597,13 +768,13 @@
       console.error('4. Check Windows Firewall isn\'t blocking port 4000');
       console.error('5. Try Postman to test backend directly (see instructions below)');
       console.groupEnd();
-      
+
       const uploadSection = document.querySelector('.upload-section');
-      
+
       // Remove any existing error messages
       const existingError = uploadSection.querySelector('.connection-error');
       if (existingError) existingError.remove();
-      
+
       const errorMsg = document.createElement('div');
       errorMsg.className = 'connection-error';
       errorMsg.style.cssText = 'background: #fee2e2; border: 2px solid #ef4444; border-radius: 10px; padding: 20px; margin: 20px 0; text-align: center;';
@@ -629,10 +800,14 @@
     }
 
     // Test connection when page loads
-    testConnection();
+    testConnection().then((ok) => {
+      if (ok) {
+        setUploadMode('zip');
+      }
+    });
 
     // Upload area interactions
-    uploadArea.addEventListener('click', () => zipFileInput.click());
+    uploadArea.addEventListener('click', () => fileInput.click());
 
     uploadArea.addEventListener('dragover', (e) => {
       e.preventDefault();
@@ -646,18 +821,24 @@
     uploadArea.addEventListener('drop', (e) => {
       e.preventDefault();
       uploadArea.classList.remove('dragover');
-      
+
       const files = e.dataTransfer.files;
-      if (files.length > 0 && files[0].name.endsWith('.zip')) {
-        zipFileInput.files = files;
-        handleFileSelect();
+      if (files.length > 0) {
+        const name = files[0].name.toLowerCase();
+        const isZip = name.endsWith('.zip');
+        const isExcel = name.endsWith('.xlsx') || name.endsWith('.xls') || name.endsWith('.csv');
+
+        if ((uploadMode === 'zip' && isZip) || (uploadMode === 'excel' && isExcel)) {
+          fileInput.files = files;
+          handleFileSelect();
+        }
       }
     });
 
-    zipFileInput.addEventListener('change', handleFileSelect);
+    fileInput.addEventListener('change', handleFileSelect);
 
     function handleFileSelect() {
-      const file = zipFileInput.files[0];
+      const file = fileInput.files[0];
       if (file) {
         uploadBtn.disabled = false;
         uploadArea.querySelector('h3').textContent = `✅ ${file.name} selected`;
@@ -668,42 +849,47 @@
     uploadBtn.addEventListener('click', async () => {
       try {
         console.log('=== UPLOAD DEBUG START ===');
-        
+
         // Step 1: Get file
-        const file = zipFileInput.files[0];
+        const file = fileInput.files[0];
         console.log('1. File object:', file);
         console.log('2. File name:', file?.name);
         console.log('3. File size:', file?.size, 'bytes');
         console.log('4. File type:', file?.type);
-        
+
         if (!file) {
           throw new Error('No file selected!');
         }
-        
+
         // Step 2: Verify API URL
         const apiUrl = window.API_URL || API_URL;
         console.log('5. API_URL constant:', API_URL);
         console.log('6. window.API_URL:', window.API_URL);
         console.log('7. Final apiUrl:', apiUrl);
-        
+
         if (!apiUrl) {
           throw new Error('apiUrl is undefined! Check API_URL constant.');
         }
-        
+
         // Step 3: Create FormData
         const formData = new FormData();
-        formData.append('zip', file);
-        console.log('8. FormData created');
+        const fieldName = uploadMode === 'zip' ? 'zip' : 'excel';
+        formData.append(fieldName, file);
+        console.log('8. FormData created (mode:', uploadMode, ')');
         console.log('9. FormData entries:', Array.from(formData.entries()).map(([k, v]) => [k, v instanceof File ? `${v.name} (${v.size} bytes)` : v]));
-        
+
         // Step 4: Construct full URL
-        const uploadUrl = `${apiUrl}/api/ocr/upload`;
+        const uploadUrl = uploadMode === 'zip'
+          ? `${apiUrl}/api/ocr/upload`
+          : `${apiUrl}/api/excel/upload`;
         console.log('10. Full upload URL:', uploadUrl);
-        
+
         // Show loading
         document.querySelector('.upload-section').style.display = 'none';
         loadingSection.classList.add('active');
-        progressText.textContent = 'Extracting images from ZIP...';
+        progressText.textContent = uploadMode === 'zip'
+          ? 'Extracting images from ZIP...'
+          : 'Reading Excel workbook and extracting data...';
 
         // Step 5: Check file size (warn if very large)
         const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
@@ -711,15 +897,15 @@
         if (file.size > 50 * 1024 * 1024) {
           console.warn('⚠️ File is very large (>50MB). This may cause timeout issues.');
         }
-        
+
         // Step 6: Attempt fetch with timeout
         console.log('12. Calling fetch...');
         const startTime = Date.now();
-        
+
         // Create AbortController for timeout
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 300000); // 5 minute timeout
-        
+
         let response;
         try {
           response = await fetch(uploadUrl, {
@@ -732,7 +918,7 @@
           clearTimeout(timeoutId);
         } catch (fetchError) {
           clearTimeout(timeoutId);
-          
+
           // Check for specific error types
           if (fetchError.name === 'AbortError') {
             throw new Error('Upload timeout - file is too large or server is too slow');
@@ -745,7 +931,7 @@
             console.error('   3. CORS preflight failing silently');
             console.error('   4. File too large for browser to handle');
             console.warn('   💡 Attempting fallback: XMLHttpRequest...');
-            
+
             // Try XMLHttpRequest as fallback (sometimes works when fetch is blocked)
             try {
               const xhrResult = await new Promise((resolve, reject) => {
@@ -753,7 +939,7 @@
                 xhr.open('POST', uploadUrl);
                 xhr.setRequestHeader('Accept', 'application/json');
                 xhr.responseType = 'json';
-                
+
                 xhr.onload = () => {
                   if (xhr.status >= 200 && xhr.status < 300) {
                     // Create a Response-like object
@@ -769,14 +955,14 @@
                     reject(new Error(`HTTP ${xhr.status}: ${xhr.statusText}`));
                   }
                 };
-                
+
                 xhr.onerror = () => reject(new Error('XMLHttpRequest failed'));
                 xhr.ontimeout = () => reject(new Error('XMLHttpRequest timeout'));
                 xhr.timeout = 300000; // 5 minutes
-                
+
                 xhr.send(formData);
               });
-              
+
               console.log('✅ Fallback XMLHttpRequest succeeded!');
               response = xhrResult;
             } catch (xhrError) {
@@ -787,7 +973,7 @@
             throw fetchError;
           }
         }
-        
+
         const duration = Date.now() - startTime;
         console.log(`13. Fetch completed in ${duration}ms`);
         console.log('14. Response status:', response.status, response.statusText);
@@ -801,11 +987,17 @@
         }
 
         console.log('18. Parsing JSON response...');
-        currentResults = await response.json();
-        console.log('19. ✅ SUCCESS! Results received:', currentResults);
+        const data = await response.json();
+        console.log('19. ✅ SUCCESS! Results received:', data);
         console.log('=== UPLOAD DEBUG END ===');
-        
-        displayResults(currentResults);
+
+        if (uploadMode === 'zip') {
+          currentResults = data;
+          displayResults(currentResults);
+        } else {
+          currentExcelData = data;
+          displayExcelResults(data);
+        }
 
       } catch (error) {
         console.error('=== UPLOAD ERROR ===');
@@ -813,7 +1005,7 @@
         console.error('Error message:', error.message);
         console.error('Error stack:', error.stack);
         console.error('===================');
-        
+
         alert(`Error: ${error.message}\n\nCheck browser console (F12) for detailed logs.\n\nMake sure the backend server is running on port 4000`);
         resetUI();
       }
@@ -956,7 +1148,7 @@
     }
 
     // Toggle details
-    window.toggleDetails = function(idx) {
+    window.toggleDetails = function (idx) {
       const details = document.getElementById(`details-${idx}`);
       details.classList.toggle('expanded');
     };
@@ -975,10 +1167,10 @@
         });
 
         const data = await response.json();
-        
+
         // Copy to clipboard
         await navigator.clipboard.writeText(data.formattedText);
-        
+
         exportBtn.textContent = '✅ Copied to Clipboard!';
         setTimeout(() => {
           exportBtn.textContent = '📋 Copy for ChatGPT';
@@ -994,16 +1186,133 @@
       resetUI();
     });
 
+    function displayExcelResults(data) {
+      loadingSection.classList.remove('active');
+      resultsSection.classList.remove('active');
+      excelResultsSection.classList.add('active');
+      document.querySelector('.upload-section').style.display = 'none';
+
+      // Display file info
+      const fileSizeKB = (data.size / 1024).toFixed(2);
+      const infoHTML = `
+        <div class="excel-info-item">
+          <div class="excel-info-label">File Name</div>
+          <div class="excel-info-value">${data.fileName}</div>
+        </div>
+        <div class="excel-info-item">
+          <div class="excel-info-label">File Size</div>
+          <div class="excel-info-value">${fileSizeKB} KB</div>
+        </div>
+        <div class="excel-info-item">
+          <div class="excel-info-label">Sheets</div>
+          <div class="excel-info-value">${data.sheetCount}</div>
+        </div>
+        <div class="excel-info-item">
+          <div class="excel-info-label">Total Rows</div>
+          <div class="excel-info-value">${data.sheets.reduce((sum, s) => sum + s.rowCount, 0)}</div>
+        </div>
+      `;
+      document.getElementById('excelInfo').innerHTML = infoHTML;
+
+      // Create sheet tabs
+      if (data.sheets.length > 1) {
+        const tabsHTML = data.sheets.map((sheet, idx) => `
+          <button class="sheet-tab ${idx === 0 ? 'active' : ''}" onclick="switchSheet(${idx})">
+            ${sheet.name} (${sheet.rowCount} rows × ${sheet.columnCount} cols)
+          </button>
+        `).join('');
+        document.getElementById('sheetTabs').innerHTML = tabsHTML;
+      } else {
+        document.getElementById('sheetTabs').innerHTML = '';
+      }
+
+      // Display first sheet
+      displaySheet(data.sheets[0], 0);
+    }
+
+    function displaySheet(sheet, sheetIndex) {
+      const container = document.getElementById('excelTableContainer');
+
+      if (!sheet.rows || sheet.rows.length === 0) {
+        container.innerHTML = '<p style="padding: 40px; text-align: center; color: #666;">This sheet is empty.</p>';
+        return;
+      }
+
+      // Find max columns across all rows
+      const maxCols = Math.max(...sheet.rows.map(row => row.length));
+
+      // Create table header
+      let tableHTML = '<table class="excel-table"><thead><tr>';
+      for (let col = 0; col < maxCols; col++) {
+        tableHTML += `<th>Column ${String.fromCharCode(65 + (col % 26))}${col >= 26 ? Math.floor(col / 26) : ''}</th>`;
+      }
+      tableHTML += '</tr></thead><tbody>';
+
+      // Add rows
+      sheet.rows.forEach((row, rowIdx) => {
+        tableHTML += '<tr>';
+        for (let col = 0; col < maxCols; col++) {
+          const cellValue = row[col] !== undefined ? row[col] : '';
+          const displayValue = cellValue === null || cellValue === '' ? '<span style="color: #ccc;">—</span>' : String(cellValue);
+          tableHTML += `<td>${displayValue}</td>`;
+        }
+        tableHTML += '</tr>';
+      });
+
+      tableHTML += '</tbody></table>';
+      container.innerHTML = tableHTML;
+    }
+
+    window.switchSheet = function (sheetIndex) {
+      if (!currentExcelData) return;
+
+      // Update active tab
+      document.querySelectorAll('.sheet-tab').forEach((tab, idx) => {
+        tab.classList.toggle('active', idx === sheetIndex);
+      });
+
+      // Display selected sheet
+      displaySheet(currentExcelData.sheets[sheetIndex], sheetIndex);
+    };
+
+    // Download Excel data as JSON
+    downloadExcelJsonBtn.addEventListener('click', () => {
+      if (!currentExcelData) return;
+
+      const jsonStr = JSON.stringify(currentExcelData, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${currentExcelData.fileName.replace(/\.[^/.]+$/, '')}_extracted.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      downloadExcelJsonBtn.textContent = '✅ Downloaded!';
+      setTimeout(() => {
+        downloadExcelJsonBtn.textContent = '💾 Download as JSON';
+      }, 2000);
+    });
+
+    // Reset Excel view
+    resetExcelBtn.addEventListener('click', () => {
+      resetUI();
+    });
+
     function resetUI() {
       document.querySelector('.upload-section').style.display = 'block';
       loadingSection.classList.remove('active');
       resultsSection.classList.remove('active');
-      zipFileInput.value = '';
+      excelResultsSection.classList.remove('active');
+      fileInput.value = '';
       uploadBtn.disabled = true;
-      uploadArea.querySelector('h3').textContent = 'Drop your ZIP file here or click to browse';
+      uploadTitle.textContent = 'Drop your ZIP file here or click to browse';
       currentResults = null;
+      currentExcelData = null;
     }
   </script>
 </body>
-</html>
 
+</html>

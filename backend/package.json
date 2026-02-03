@@ -8,6 +8,7 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
+    "xlsx": "^0.18.5",
     "axios": "^1.6.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",

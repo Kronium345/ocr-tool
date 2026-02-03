@@ -6,6 +6,7 @@ import path from "path";
 import unzipper from "unzipper";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
+import XLSX from "xlsx";
 import { ocrImage, cleanupOCR } from "./ocr.js";
 import { parseQuestion, type ParsedQuestion } from "./parser.js";
 import { tagQuestion, type AWSTags } from "./awsTagger.js";
@@ -68,7 +69,7 @@ app.use(express.json({ limit: '100mb' })); // Increase JSON payload limit
 app.use(express.urlencoded({ extended: true, limit: '100mb' })); // Increase URL-encoded payload limit
 
 // Configure multer with file size limits
-const upload = multer({ 
+const upload = multer({
   dest: "uploads/",
   limits: {
     fileSize: 100 * 1024 * 1024, // 100MB max file size
@@ -92,8 +93,8 @@ const RESULTS_DIR = path.join(__dirname, "..", "results");
  */
 app.get("/api/health", (req, res) => {
   console.log('   ✅ Health check successful');
-  res.json({ 
-    status: "ok", 
+  res.json({
+    status: "ok",
     timestamp: new Date().toISOString(),
     clarifaiConfigured: !!process.env.FitnessOnePAT,
     server: {
@@ -120,7 +121,7 @@ app.post("/api/ocr/upload", upload.single("zip"), async (req, res) => {
     console.log(`   File name: ${req.file ? req.file.originalname : 'none'}`);
     console.log(`   File size: ${req.file ? req.file.size : 0} bytes`);
     console.log(`   File path: ${req.file ? req.file.path : 'none'}`);
-    
+
     const zipPath = req.file?.path;
     if (!zipPath) {
       console.error('   ❌ No file uploaded');
@@ -148,7 +149,7 @@ app.post("/api/ocr/upload", upload.single("zip"), async (req, res) => {
     console.log(`🖼️  Found ${imageFiles.length} images`);
 
     if (imageFiles.length === 0) {
-      return res.status(400).json({ 
+      return res.status(400).json({
         error: "No image files found in ZIP",
         hint: "Make sure your ZIP contains .png, .jpg, .jpeg, or .webp files"
       });
@@ -160,7 +161,7 @@ app.post("/api/ocr/upload", upload.single("zip"), async (req, res) => {
     for (let i = 0; i < imageFiles.length; i++) {
       const filePath = imageFiles[i];
       const fileName = path.basename(filePath);
-      
+
       console.log(`🔍 OCR processing [${i + 1}/${imageFiles.length}]: ${fileName}`);
 
       try {
@@ -190,7 +191,7 @@ app.post("/api/ocr/upload", upload.single("zip"), async (req, res) => {
         console.log(`✅ Processed: ${fileName} ${isCorrect ? "✓" : "✗"}`);
       } catch (error: any) {
         console.error(`❌ Failed to process ${fileName}:`, error.message);
-        
+
         // Add failed entry
         analyses.push({
           file: fileName,
@@ -218,16 +219,16 @@ app.post("/api/ocr/upload", upload.single("zip"), async (req, res) => {
       success: true,
       processedCount: analyses.length,
       timestamp: new Date().toISOString(),
-      
+
       // Individual question analyses
       questions: analyses,
-      
+
       // Intelligent summary
       summary,
-      
+
       // Heatmap visualization data
       heatmap,
-      
+
       // Quick stats
       quickStats: {
         accuracy: `${summary.accuracy.toFixed(1)}%`,
@@ -254,9 +255,82 @@ app.post("/api/ocr/upload", upload.single("zip"), async (req, res) => {
 
   } catch (err: any) {
     console.error("❌ Server error:", err);
-    res.status(500).json({ 
+    res.status(500).json({
       error: err.message,
       stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
+    });
+  }
+});
+
+app.post("/api/excel/upload", upload.single("excel"), async (req, res) => {
+  try {
+    console.log("   📊 Excel upload request received");
+    console.log(`   File field: ${req.file ? "present" : "missing"}`);
+    console.log(`   File name: ${req.file ? req.file.originalname : "none"}`);
+    console.log(`   File size: ${req.file ? req.file.size : 0} bytes`);
+
+    const excelPath = req.file?.path;
+    if (!excelPath) {
+      return res.status(400).json({ error: "No Excel file uploaded" });
+    }
+
+    // Read workbook (supports .xlsx, .xls, .csv)
+    console.log("   📖 Reading workbook...");
+    const workbook = XLSX.readFile(excelPath, { cellDates: true, cellNF: false, cellText: false });
+
+    const sheetsSummary = workbook.SheetNames.map((sheetName) => {
+      const sheet = workbook.Sheets[sheetName];
+      const ref = sheet["!ref"] || null;
+
+      let rowCount = 0;
+      let columnCount = 0;
+
+      if (ref) {
+        const range = XLSX.utils.decode_range(ref);
+        rowCount = range.e.r - range.s.r + 1;
+        columnCount = range.e.c - range.s.c + 1;
+      }
+
+      // 2D array of values (including blanks) for easier inspection
+      const rows: unknown[][] = XLSX.utils.sheet_to_json(sheet, {
+        header: 1,
+        raw: true,
+        blankrows: false
+      }) as unknown[][];
+
+      return {
+        name: sheetName,
+        usedRange: ref,
+        rowCount,
+        columnCount,
+        rows
+      };
+    });
+
+    // Cleanup uploaded file
+    try {
+      fs.unlinkSync(excelPath);
+    } catch (cleanupErr: any) {
+      console.warn("   ⚠️ Failed to delete uploaded Excel file:", cleanupErr.message);
+    }
+
+    const responseData = {
+      success: true,
+      type: "excel",
+      fileName: req.file?.originalname || "unknown",
+      size: req.file?.size || 0,
+      sheetCount: workbook.SheetNames.length,
+      sheets: sheetsSummary,
+      timestamp: new Date().toISOString()
+    };
+
+    console.log("   ✅ Excel workbook processed successfully");
+    res.json(responseData);
+  } catch (err: any) {
+    console.error("❌ Excel processing error:", err);
+    res.status(500).json({
+      error: err.message,
+      stack: process.env.NODE_ENV === "development" ? err.stack : undefined
     });
   }
 });
@@ -266,13 +340,13 @@ app.post("/api/ocr/upload", upload.single("zip"), async (req, res) => {
  */
 function getAllImageFiles(dir: string): string[] {
   const files: string[] = [];
-  
+
   function traverse(currentPath: string) {
     const entries = fs.readdirSync(currentPath, { withFileTypes: true });
-    
+
     for (const entry of entries) {
       const fullPath = path.join(currentPath, entry.name);
-      
+
       if (entry.isDirectory()) {
         // Skip common non-image directories
         if (!entry.name.startsWith('.') && !entry.name.startsWith('__')) {
@@ -286,7 +360,7 @@ function getAllImageFiles(dir: string): string[] {
       }
     }
   }
-  
+
   traverse(dir);
   return files.sort(); // Sort for consistent ordering
 }
@@ -379,11 +453,11 @@ app.post("/api/export/chatgpt", express.json(), (req, res) => {
     questions.forEach((q: QuestionAnalysis, idx: number) => {
       output += `## Question ${idx + 1} (${q.isCorrect ? "✓ CORRECT" : "✗ INCORRECT"})\n\n`;
       output += `**File**: ${q.file}\n\n`;
-      
+
       if (q.parsed.question) {
         output += `**Question**: ${q.parsed.question}\n\n`;
       }
-      
+
       if (q.parsed.options.length > 0) {
         output += "**Options**:\n";
         q.parsed.options.forEach(opt => {
@@ -391,22 +465,22 @@ app.post("/api/export/chatgpt", express.json(), (req, res) => {
         });
         output += "\n";
       }
-      
+
       output += `**Your Answer**: ${q.parsed.yourAnswer || "N/A"}\n`;
       output += `**Correct Answer**: ${q.parsed.correctAnswer || "N/A"}\n\n`;
-      
+
       if (q.parsed.explanation) {
         output += `**Explanation**: ${q.parsed.explanation}\n\n`;
       }
-      
+
       if (q.tags.services.length > 0) {
         output += `**AWS Services**: ${q.tags.services.join(", ")}\n`;
       }
-      
+
       if (q.tags.domains.length > 0) {
         output += `**Domains**: ${q.tags.domains.join(", ")}\n`;
       }
-      
+
       output += "\n---\n\n";
     });
 
