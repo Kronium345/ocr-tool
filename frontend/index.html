@@ -529,8 +529,8 @@
         questions</p>
 
       <div style="margin-top: 10px; margin-bottom: 20px;">
-        <button class="btn" id="modeZipBtn">📦 Zipped folders</button>
-        <button class="btn btn-secondary" id="modeExcelBtn">📊 Excel files</button>
+        <button type="button" class="btn" id="modeZipBtn">📦 Zipped folders</button>
+        <button type="button" class="btn btn-secondary" id="modeExcelBtn">📊 Excel files</button>
       </div>
 
       <div class="upload-area" id="uploadArea">
@@ -541,7 +541,7 @@
 
       <input type="file" id="fileInput" accept=".zip" />
 
-      <button class="btn" id="uploadBtn" disabled>
+      <button type="button" class="btn" id="uploadBtn" disabled>
         🚀 Process & Analyze
       </button>
     </div>
@@ -594,7 +594,7 @@
             Generate formatted text to paste into ChatGPT for deep concept analysis,
             trap recognition, and architecture reasoning
           </p>
-          <button class="btn btn-secondary" id="exportBtn">
+          <button type="button" class="btn btn-secondary" id="exportBtn">
             📋 Copy for ChatGPT
           </button>
         </div>
@@ -608,7 +608,7 @@
 
       <!-- Reset Button -->
       <div class="card" style="text-align: center;">
-        <button class="btn" id="resetBtn">🔄 Process Another File</button>
+        <button type="button" class="btn" id="resetBtn">🔄 Process Another File</button>
       </div>
     </div>
 
@@ -620,8 +620,11 @@
         <div class="sheet-tabs" id="sheetTabs"></div>
         <div class="excel-table-container" id="excelTableContainer"></div>
         <div style="text-align: center; margin: 30px 0;">
-          <button class="btn btn-secondary" id="downloadExcelJsonBtn">💾 Download as JSON</button>
-          <button class="btn" id="resetExcelBtn" style="margin-left: 10px;">🔄 Process Another File</button>
+          <button type="button" class="btn btn-secondary" id="downloadExcelJsonBtn">💾 Download as JSON</button>
+          <button type="button" class="btn btn-secondary" id="loadLatestExcelBtn" style="margin-left: 10px;">📂 Load
+            Latest Excel Results</button>
+          <button type="button" class="btn" id="resetExcelBtn" style="margin-left: 10px;">🔄 Process Another
+            File</button>
         </div>
       </div>
     </div>
@@ -651,6 +654,7 @@
     const modeExcelBtn = document.getElementById('modeExcelBtn');
     const excelResultsSection = document.getElementById('excelResultsSection');
     const downloadExcelJsonBtn = document.getElementById('downloadExcelJsonBtn');
+    const loadLatestExcelBtn = document.getElementById('loadLatestExcelBtn');
     const resetExcelBtn = document.getElementById('resetExcelBtn');
     let currentExcelData = null;
 
@@ -799,11 +803,81 @@
       return false;
     }
 
+    async function loadLatestExcelResults() {
+      try {
+        const apiUrl = window.API_URL || API_URL;
+        const response = await fetch(`${apiUrl}/api/excel/results/latest`, {
+          method: 'GET',
+          mode: 'cors'
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          currentExcelData = data;
+          displayExcelResults(data);
+          console.log('✅ Loaded latest Excel results from:', data.file);
+        } else if (response.status === 404) {
+          // No Excel results found, that's okay
+          console.log('ℹ️ No previous Excel results found');
+        } else {
+          console.warn('⚠️ Failed to load latest Excel results:', response.status);
+        }
+      } catch (error) {
+        console.warn('⚠️ Error loading latest Excel results:', error.message);
+        // Don't show error to user, just log it
+      }
+    }
+
+    // Load latest Excel button handler
+    if (loadLatestExcelBtn) {
+      loadLatestExcelBtn.addEventListener('click', async () => {
+        loadLatestExcelBtn.disabled = true;
+        loadLatestExcelBtn.textContent = '⏳ Loading...';
+        await loadLatestExcelResults();
+        loadLatestExcelBtn.disabled = false;
+        loadLatestExcelBtn.textContent = '📂 Load Latest Excel Results';
+      });
+    }
+
     // Test connection when page loads
     testConnection().then((ok) => {
       if (ok) {
         setUploadMode('zip');
       }
+    });
+
+    async function loadLatestExcelResults() {
+      try {
+        const apiUrl = window.API_URL || API_URL;
+        const response = await fetch(`${apiUrl}/api/excel/results/latest`, {
+          method: 'GET',
+          mode: 'cors'
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          currentExcelData = data;
+          displayExcelResults(data);
+          console.log('✅ Loaded latest Excel results from:', data.file);
+        } else if (response.status === 404) {
+          // No Excel results found, that's okay
+          console.log('ℹ️ No previous Excel results found');
+        } else {
+          console.warn('⚠️ Failed to load latest Excel results:', response.status);
+        }
+      } catch (error) {
+        console.warn('⚠️ Error loading latest Excel results:', error.message);
+        // Don't show error to user, just log it
+      }
+    }
+
+    // Load latest Excel button handler
+    loadLatestExcelBtn.addEventListener('click', async () => {
+      loadLatestExcelBtn.disabled = true;
+      loadLatestExcelBtn.textContent = '⏳ Loading...';
+      await loadLatestExcelResults();
+      loadLatestExcelBtn.disabled = false;
+      loadLatestExcelBtn.textContent = '📂 Load Latest Excel Results';
     });
 
     // Upload area interactions
@@ -846,7 +920,9 @@
     }
 
     // Upload and process with comprehensive debugging
-    uploadBtn.addEventListener('click', async () => {
+    uploadBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       try {
         console.log('=== UPLOAD DEBUG START ===');
 
@@ -1217,11 +1293,20 @@
       // Create sheet tabs
       if (data.sheets.length > 1) {
         const tabsHTML = data.sheets.map((sheet, idx) => `
-          <button class="sheet-tab ${idx === 0 ? 'active' : ''}" onclick="switchSheet(${idx})">
+          <button type="button" class="sheet-tab ${idx === 0 ? 'active' : ''}" data-sheet-index="${idx}">
             ${sheet.name} (${sheet.rowCount} rows × ${sheet.columnCount} cols)
           </button>
         `).join('');
         document.getElementById('sheetTabs').innerHTML = tabsHTML;
+
+        // Add event listeners to sheet tabs
+        document.querySelectorAll('.sheet-tab').forEach(tab => {
+          tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            const sheetIndex = parseInt(tab.getAttribute('data-sheet-index'));
+            switchSheet(sheetIndex);
+          });
+        });
       } else {
         document.getElementById('sheetTabs').innerHTML = '';
       }
@@ -1263,17 +1348,21 @@
       container.innerHTML = tableHTML;
     }
 
-    window.switchSheet = function (sheetIndex) {
+    function switchSheet(sheetIndex) {
       if (!currentExcelData) return;
 
       // Update active tab
-      document.querySelectorAll('.sheet-tab').forEach((tab, idx) => {
-        tab.classList.toggle('active', idx === sheetIndex);
+      document.querySelectorAll('.sheet-tab').forEach((tab) => {
+        const tabIndex = parseInt(tab.getAttribute('data-sheet-index'));
+        tab.classList.toggle('active', tabIndex === sheetIndex);
       });
 
       // Display selected sheet
       displaySheet(currentExcelData.sheets[sheetIndex], sheetIndex);
-    };
+    }
+
+    // Make switchSheet available globally
+    window.switchSheet = switchSheet;
 
     // Download Excel data as JSON
     downloadExcelJsonBtn.addEventListener('click', () => {

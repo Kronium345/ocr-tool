@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "type": "excel",
+  "fileName": "pharmaque_testers_external_testers_export.csv",
+  "size": 40,
+  "sheetCount": 1,
+  "sheets": [
+    {
+      "name": "Sheet1",
+      "usedRange": "A1:C1",
+      "rowCount": 1,
+      "columnCount": 3,
+      "rows": [
+        [
+          "Olatoun",
+          "Awolowo",
+          "olatounawolowo@yahoo.com"
+        ]
+      ]
+    }
+  ],
+  "timestamp": "2026-02-03T11:22:39.842Z"
+}

@@ -324,6 +324,11 @@ app.post("/api/excel/upload", upload.single("excel"), async (req, res) => {
       timestamp: new Date().toISOString()
     };
 
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const resultsFile = path.join(RESULTS_DIR, `excel-results-${timestamp}.json`);
+    fs.writeFileSync(resultsFile, JSON.stringify(responseData, null, 2));
+    console.log(`💾 Excel results saved to: ${resultsFile}`);
+
     console.log("   ✅ Excel workbook processed successfully");
     res.json(responseData);
   } catch (err: any) {
@@ -365,12 +370,9 @@ function getAllImageFiles(dir: string): string[] {
   return files.sort(); // Sort for consistent ordering
 }
 
-/**
- * Get latest results endpoint
- */
+
 app.get("/api/results/latest", (req, res) => {
   try {
-    // Find the most recent results file
     if (!fs.existsSync(RESULTS_DIR)) {
       return res.status(404).json({ error: "No results found. Upload a ZIP file first." });
     }
@@ -386,6 +388,43 @@ app.get("/api/results/latest", (req, res) => {
 
     if (files.length === 0) {
       return res.status(404).json({ error: "No results found. Upload a ZIP file first." });
+    }
+
+    const latestFile = files[0];
+    const results = JSON.parse(fs.readFileSync(latestFile.path, 'utf-8'));
+
+    res.json({
+      success: true,
+      file: latestFile.name,
+      timestamp: latestFile.time.toISOString(),
+      ...results
+    });
+  } catch (err: any) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+/**
+ * Get latest Excel results endpoint
+ */
+app.get("/api/excel/results/latest", (req, res) => {
+  try {
+    // Find the most recent Excel results file
+    if (!fs.existsSync(RESULTS_DIR)) {
+      return res.status(404).json({ error: "No Excel results found. Upload an Excel file first." });
+    }
+
+    const files = fs.readdirSync(RESULTS_DIR)
+      .filter(f => f.startsWith('excel-results-') && f.endsWith('.json'))
+      .map(f => ({
+        name: f,
+        path: path.join(RESULTS_DIR, f),
+        time: fs.statSync(path.join(RESULTS_DIR, f)).mtime
+      }))
+      .sort((a, b) => b.time.getTime() - a.time.getTime());
+
+    if (files.length === 0) {
+      return res.status(404).json({ error: "No Excel results found. Upload an Excel file first." });
     }
 
     const latestFile = files[0];
